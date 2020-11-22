@@ -3,11 +3,38 @@ WorldInfo {
   coordinateSystem "NUE"
 }
 Viewpoint {
-  orientation -0.7 0.7 0.2 0.75
-  position 1.2 1.6 2.3
-
+  orientation -0.9707254537965657 -0.23497450678142684 -0.04979030542461873 0.5295513617414555
+  position -0.550680114467337 2.822041170179525 4.527523138079333
 }
 TexturedBackground {
 }
 TexturedBackgroundLight {
+}
+RectangleArena {
+  floorSize 10 10
+  floorTileSize 2.5 2.5
+  wallHeight 0.5
+}
+Solid {
+  translation 1.55513 0.5 -0.41352
+  children [
+    Shape {
+      appearance GlossyPaint {
+        baseColor 0.3 0.5 0
+      }
+      geometry Box {
+        size 1 1 1
+      }
+    }
+  ]
+  boundingObject Box {
+    size 1 1 1
+  }
+}
+Pioneer3at {
+  controller "pioneer3at_controll"
+  extensionSlot [
+    Compass {
+    }
+  ]
 }
