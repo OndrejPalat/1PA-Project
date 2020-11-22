@@ -3,10 +3,23 @@ WorldInfo {
   coordinateSystem "NUE"
 }
 Viewpoint {
-  orientation -0.6931032800836722 0.6931032800836722 0.1980295085953349 0.75
-  position 1.2 1.6 2.3
+  orientation -0.0035298093415921006 -0.9896380701953679 -0.14354104105098298 3.1353478930546577
+  position -0.37516274994839205 3.938813340352022 -9.078849317074905
 }
 TexturedBackground {
 }
 TexturedBackgroundLight {
+}
+Floor {
+  appearance Parquetry {
+    type "light strip"
+  }
+}
+Table {
+  size 3 0.74 3
+}
+P-Rob3 {
+  translation -0.94 0.74 -1.03945e-14
+  rotation 1 0 0 -1.5707953071795862
+  controller "my_controller"
 }
