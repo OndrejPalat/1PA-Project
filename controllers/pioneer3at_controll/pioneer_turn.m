@@ -1,5 +1,5 @@
-function pioneer_turn(turn_angle, orientation, wheel_motors, compass,...
-            velocity, TIME_STEP)
+function pioneer_turn(turn_angle, orientation, delay, wheel_motors,...
+                      compass, velocity, TIME_STEP)
   
   k = 0;  
   min_angle_interval = 0;
@@ -55,13 +55,21 @@ function pioneer_turn(turn_angle, orientation, wheel_motors, compass,...
       end
       break
     end
-    if min_angle > max_angle & (now_angle > min_angle | now_angle < max_angle)
-      for i = 1 : numel(wheel_motors)
-        wb_motor_set_velocity(wheel_motors(i), velocity);
-      end        
+    if min_angle > max_angle & (now_angle > min_angle | now_angle < max_angle)       
       break
     end
-  end    
+  end
+  
+  for i = 1 : numel(wheel_motors)
+    wb_motor_set_velocity(wheel_motors(i), velocity);
+  end
+  time = wb_robot_get_time();  
+  
+  while wb_robot_step(TIME_STEP) ~= -1
+      if wb_robot_get_time() > time + delay
+          break
+      end
+  end
 
 end
 

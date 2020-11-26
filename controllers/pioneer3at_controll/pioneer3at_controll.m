@@ -8,7 +8,7 @@
 % uncomment the next two lines if you want to use
 % MATLAB's desktop to interact with the controller:
 %desktop;
-%0keyboard;
+%keyboard;
 
 TIME_STEP = 32;
 
@@ -47,20 +47,35 @@ while wb_robot_step(TIME_STEP) ~= -1
 %  disp("Sensors data:" + newline + message);
 %  message = "";
 %  disp(wb_compass_get_values(compass));
-
+        
+  
   if n_of_turns > 0
-    pioneer_turn(80, "CW", wheel_motors, compass, velocity, TIME_STEP)
+    pioneer_turn(80, "CW", 0.5, wheel_motors, compass, velocity, TIME_STEP)
     n_of_turns = n_of_turns - 1;
   end
   
-  if sensors_data(4) > reaction_distance | sensors_data(5) > reaction_distance
-    pioneer_turn(90, "CW", wheel_motors, compass, velocity, TIME_STEP)
+  if sensors_data(4) > reaction_distance || sensors_data(5) > reaction_distance
+    pioneer_turn(90, "CW", 0.5, wheel_motors, compass, velocity, TIME_STEP)
   end
   if sensors_data(3) > reaction_distance
-    pioneer_turn(45, "CW", wheel_motors, compass, velocity, TIME_STEP)
+    pioneer_turn(45, "CW", 0.5, wheel_motors, compass, velocity, TIME_STEP)
   end
-    if sensors_data(6) > reaction_distance
-    pioneer_turn(45, "CCW", wheel_motors, compass, velocity, TIME_STEP)
+  if sensors_data(6) > reaction_distance
+    pioneer_turn(45, "CCW", 0.5, wheel_motors, compass, velocity, TIME_STEP)
+  end
+  if sensors_data(2) > reaction_distance
+    pioneer_turn(30, "CW", 0.5, wheel_motors, compass, velocity, TIME_STEP)
+  end
+  if sensors_data(7) > reaction_distance
+    pioneer_turn(30, "CCW", 0.5, wheel_motors, compass, velocity, TIME_STEP)
+  end
+  if sensors_data(8) > reaction_distance
+    pioneer_move_along(reaction_distance, "right", velocity, sensors,...
+                     wheel_motors, compass, TIME_STEP)
+  end
+  if sensors_data(1) > reaction_distance
+    pioneer_move_along(reaction_distance, "left", velocity, sensors,...
+                     wheel_motors, compass, TIME_STEP)
   end
   
   if n_of_alignments > 0

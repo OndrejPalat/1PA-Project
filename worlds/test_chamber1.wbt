@@ -3,8 +3,8 @@ WorldInfo {
   coordinateSystem "NUE"
 }
 Viewpoint {
-  orientation -0.5202552212161061 -0.8406296095278594 -0.15058673375307402 0.7015355833794628
-  position -2.216667246677459 2.3331924603717042 3.225884716891186
+  orientation -0.5773220787679771 -0.5838421420821842 -0.5708130784205179 2.085419074597156
+  position -1.4016370860925762 8.272231531010213 -3.80608833619948
 }
 TexturedBackground {
 }
@@ -16,7 +16,8 @@ RectangleArena {
   wallHeight 0.5
 }
 Solid {
-  translation 2.83208 0.5 -1.16009
+  translation 0.371835 0.5 -2.96033
+  rotation 0 1 0 0.706859
   children [
     Shape {
       appearance GlossyPaint {
@@ -32,6 +33,8 @@ Solid {
   }
 }
 Pioneer3at {
+  translation -1.73517 0.11 -3.44313
+  rotation 0 -1 0 1.5577
   controller "pioneer3at_controll"
   extensionSlot [
     Compass {
