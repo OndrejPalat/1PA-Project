@@ -3,8 +3,8 @@ WorldInfo {
   coordinateSystem "NUE"
 }
 Viewpoint {
-  orientation -0.009208846302462678 0.9154234062151376 0.40238685925767104 3.0845611065201526
-  position -0.007590148239848637 4.322694285989837 -2.5911569931024436
+  orientation 0.005361360543770693 0.8424094131152424 0.538811318095632 3.147054385093233
+  position 0.536707203692682 4.21839018977463 -1.6074052805645713
 }
 TexturedBackground {
 }
@@ -24,5 +24,18 @@ P-Rob3 {
   controller "my_controller"
 }
 Can {
-  translation -0.08 0.80103 2.01968e-17
+  translation -0.41 0.80103 -0.41
+  mass 0.02
+}
+SolidBox {
+  translation -0.06 0.84 1.15
+  size 0.05 0.1 0.05
+  physics Physics {
+    mass 0.01
+  }
+}
+IprHd6ms90 {
+  translation 1.06 0.74 0
+  rotation 0 1 0 3.14159
+  controller "ipr_controller"
 }

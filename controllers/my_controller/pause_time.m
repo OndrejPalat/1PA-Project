@@ -1,10 +1,5 @@
-function [] = pause_time(time)
+function [actual_time] = pause_time(time)
 start_time = wb_robot_get_time();
-while true
-    step();
-    while start_time + time > wb_robot_get_time()
-        step();
-    end
-end
+actual_time = start_time + time;
 end
 

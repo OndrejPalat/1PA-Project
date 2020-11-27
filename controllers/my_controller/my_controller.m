@@ -91,8 +91,8 @@ while wb_robot_step(TIME_STEP) ~= -1
 %if value_dsG == 100 || value_dsG == 1500
 value_ps1 = wb_position_sensor_get_value(ps1);
 if value_ps1 < 0.1
-init_grab_position(motors)
-open_gripper(motors)
+%init_grab_position(motors)
+%open_gripper(motors)
 end
 
 %else
@@ -101,6 +101,7 @@ end
 value_ps1 = wb_position_sensor_get_value(ps1);
 value_ps2 = wb_position_sensor_get_value(ps2);
 value_ps7 = wb_position_sensor_get_value(ps7);
+value_ps8 = wb_position_sensor_get_value(ps8);
 %value_ps8 = wb_position_sensor_get_value(ps8)
 %value_ds1L = wb_distance_sensor_get_value(ds1L)
 %value_ds2L = wb_distance_sensor_get_value(ds2L)
@@ -112,15 +113,31 @@ value_ps7 = wb_position_sensor_get_value(ps7);
 %value_ds4R = wb_distance_sensor_get_value(ds4R)
 %disp('value_dsG')
 value_dsG = wb_distance_sensor_get_value(dsG);
+%if value_ps2 > 1.55 && value_ps7 == 0.5
+%real_time = wb_robot_get_time()
+%pause_time(0.5)
+%end
 if value_ps2 > 1.56
-  grip(motors)
+  %grip(motors)
 end
-if value_ps7 < 0.28 && value_ps2 > 1.56
-  second_position(motors)
+%real_time = wb_robot_get_time()
+if value_ps7 < 0.35 && value_ps2 > 1.56 %&& actual_time == real_time
+
+%[actual_time] = pause_time(0.5)
+  if real_time > 4 
+    %second_position(motors)
+    %reset_torque(motors)
+    end
 end
-if value_ps1 > 0.05
-  reset_torque(motors)
-end
+
+
+
+    
+
+%if 
+  %reset_torque(motors)
+  %close_gripper(motors)
+%end
 %value_ps3 = wb_position_sensor_get_value(ps3)
 %disp(value_ps3)
 %type = wb_distance_sensor_get_type(dsG)
