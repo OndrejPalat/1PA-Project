@@ -3,21 +3,39 @@ WorldInfo {
   coordinateSystem "NUE"
 }
 Viewpoint {
-  orientation -0.5773220787679771 -0.5838421420821842 -0.5708130784205179 2.085419074597156
-  position -1.4016370860925762 8.272231531010213 -3.80608833619948
+  orientation -0.45054426573798656 0.7305286944281674 0.5131643900619915 1.9890902037159828
+  position 4.6113172484927185 15.25543367372494 0.8841228661184717
 }
 TexturedBackground {
 }
 TexturedBackgroundLight {
 }
-RectangleArena {
-  floorSize 10 10
-  floorTileSize 2.5 2.5
-  wallHeight 0.5
+Robot {
+  translation 2.71 0.11 1.97
+  children [
+    Solid {
+      children [
+        Shape {
+          appearance GlossyPaint {
+            baseColor 1 0 0
+          }
+          geometry Sphere {
+            radius 0.1
+          }
+        }
+      ]
+    }
+  ]
+  boundingObject Sphere {
+    radius 0.1
+  }
+  physics Physics {
+  }
 }
 Solid {
-  translation 0.371835 0.5 -2.96033
-  rotation 0 1 0 0.706859
+  translation -3.92195 1.16 3.91202
+  rotation 0 1 0 1.5708
+  scale 2.33506 2.33506 2.33506
   children [
     Shape {
       appearance GlossyPaint {
@@ -32,13 +50,134 @@ Solid {
     size 1 1 1
   }
 }
+Solid {
+  translation -1.71513 1.16 5.23717
+  rotation 0 1 0 0.831217
+  scale 2.33506 2.33506 2.33506
+  children [
+    Shape {
+      appearance GlossyPaint {
+        baseColor 0.3 0.5 0
+      }
+      geometry Box {
+        size 1 1 1
+      }
+    }
+  ]
+  name "solid(5)"
+  boundingObject Box {
+    size 1 1 1
+  }
+}
+Solid {
+  translation -2.65196 1.16 4.44278
+  rotation 0 1 0 0.831217
+  scale 2.33506 2.33506 2.33506
+  children [
+    Shape {
+      appearance GlossyPaint {
+        baseColor 0.3 0.5 0
+      }
+      geometry Box {
+        size 1 1 1
+      }
+    }
+  ]
+  name "solid(6)"
+  boundingObject Box {
+    size 1 1 1
+  }
+}
 Pioneer3at {
-  translation -1.73517 0.11 -3.44313
-  rotation 0 -1 0 1.5577
+  translation -2.99458 0.11 0.555443
+  rotation 0 1 0 1.5707963267948968
   controller "pioneer3at_controll"
   extensionSlot [
+    GPS {
+      accuracy 2
+      noiseCorrelation 0.3
+    }
+    Receiver {
+    }
+    Emitter {
+    }
     Compass {
       rotation -0.7071067811865476 0 0.7071067811865476 3.141592653589793
     }
   ]
+}
+Floor {
+  tileSize 2.5 2.5
+}
+Solid {
+  translation -4.94 0.22 0.0200051
+  rotation 0 1 0 -1.5707953071795862
+  children [
+    Shape {
+      appearance Marble {
+        colorOverride 0 0.3 0.8
+      }
+      geometry Box {
+        size 10 0.5 0.1
+      }
+    }
+  ]
+  name "solid(4)"
+  boundingObject Box {
+    size 10 0.5 0.1
+  }
+}
+Solid {
+  translation 4.99 0.22 0.0200029
+  rotation 0 1 0 -1.5707953071795862
+  children [
+    Shape {
+      appearance Marble {
+        colorOverride 0 0.3 0.8
+      }
+      geometry Box {
+        size 10 0.5 0.1
+      }
+    }
+  ]
+  name "solid(1)"
+  boundingObject Box {
+    size 10 0.5 0.1
+  }
+}
+Solid {
+  translation 0.0300191 0.22 -4.92999
+  rotation 0 1 0 3.14159
+  children [
+    Shape {
+      appearance Marble {
+        colorOverride 0 0.3 0.8
+      }
+      geometry Box {
+        size 10 0.5 0.1
+      }
+    }
+  ]
+  name "solid(2)"
+  boundingObject Box {
+    size 10 0.5 0.1
+  }
+}
+Solid {
+  translation 0.0299873 0.22 4.96001
+  rotation 0 1 0 3.14159
+  children [
+    Shape {
+      appearance Marble {
+        colorOverride 0 0.3 0.8
+      }
+      geometry Box {
+        size 10 0.5 0.1
+      }
+    }
+  ]
+  name "solid(3)"
+  boundingObject Box {
+    size 10 0.5 0.1
+  }
 }
