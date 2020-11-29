@@ -1,0 +1,153 @@
+#VRML_SIM R2020b utf8
+WorldInfo {
+  coordinateSystem "NUE"
+}
+Viewpoint {
+  orientation -0.13767979052137838 0.9008249022476835 0.4117751458896476 2.55648370251404
+  position 1.4202757077249006 6.571142497121054 -5.984498920633505
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+Floor {
+  size 100 100
+  tileSize 2.5 2.5
+}
+Solid {
+  children [
+    Shape {
+      appearance GlossyPaint {
+        baseColor 0.1 0 0.7
+      }
+      geometry DEF wall Box {
+        size 10 2 0.1
+      }
+    }
+  ]
+  boundingObject USE wall
+}
+Robot {
+  translation 0 0.19 1
+  children [
+    Receiver {
+    }
+    Emitter {
+    }
+    GPS {
+    }
+    Solid {
+      children [
+        Shape {
+          appearance DamascusSteel {
+            colorOverride 1 0.8 0.3
+          }
+          geometry DEF sphere Sphere {
+            radius 0.1
+            subdivision 5
+          }
+        }
+      ]
+      boundingObject USE sphere
+      physics Physics {
+      }
+    }
+  ]
+  name "Golden Snitch"
+  physics Physics {
+  }
+  controller ""
+}
+Solid {
+  translation -1.79173 0 -8.86692
+  rotation 0 -1 0 2.78162
+  children [
+    Shape {
+      appearance GlossyPaint {
+        baseColor 0.1 0 0.7
+      }
+      geometry DEF wall Box {
+        size 10 2 0.1
+      }
+    }
+  ]
+  name "solid(3)"
+  boundingObject USE wall
+}
+Solid {
+  translation -4.9274 0 3.10944
+  rotation 0 -1 0 1.09301
+  children [
+    Shape {
+      appearance GlossyPaint {
+        baseColor 0.1 0 0.7
+      }
+      geometry DEF wall Box {
+        size 10 2 0.1
+      }
+    }
+  ]
+  name "solid(4)"
+  boundingObject USE wall
+}
+Solid {
+  translation 8.8516 -2.13163e-14 -6.2192
+  rotation 0 -1 0 0.287979
+  children [
+    Shape {
+      appearance GlossyPaint {
+        baseColor 0.1 0 0.7
+      }
+      geometry DEF wall Box {
+        size 10 2 0.1
+      }
+    }
+  ]
+  name "solid(5)"
+  boundingObject USE wall
+}
+Solid {
+  translation -9.88 0 0
+  children [
+    Shape {
+      appearance GlossyPaint {
+        baseColor 0.1 0 0.7
+      }
+      geometry DEF wall Box {
+        size 10 2 0.1
+      }
+    }
+  ]
+  name "solid(1)"
+  boundingObject USE wall
+}
+Solid {
+  translation 10.2868 0 1.23492
+  rotation 0 1 0 0.903208
+  children [
+    Shape {
+      appearance GlossyPaint {
+        baseColor 0.1 0 0.7
+      }
+      geometry DEF wall Box {
+        size 10 2 0.1
+      }
+    }
+  ]
+  name "solid(2)"
+  boundingObject USE wall
+}
+Pioneer3at {
+  translation -0.358183 0.11 -2.38557
+  controller "pioneer3at_controll"
+  extensionSlot [
+    GPS {
+    }
+    Emitter {
+    }
+    Compass {
+    }
+    Receiver {
+    }
+  ]
+}

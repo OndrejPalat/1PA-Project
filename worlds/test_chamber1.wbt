@@ -3,8 +3,9 @@ WorldInfo {
   coordinateSystem "NUE"
 }
 Viewpoint {
-  orientation -0.45054426573798656 0.7305286944281674 0.5131643900619915 1.9890902037159828
-  position 4.6113172484927185 15.25543367372494 0.8841228661184717
+  fieldOfView 0.7
+  orientation -0.8635093214871661 -0.3851871620136903 -0.3255495383572418 1.567866373720096
+  position -0.7351138248475682 17.27015127465355 -1.985869739554162
 }
 TexturedBackground {
 }
@@ -51,7 +52,45 @@ Solid {
   }
 }
 Solid {
-  translation -1.71513 1.16 5.23717
+  translation 0.487539 1.16 -4.58544
+  rotation 0 1 0 1.5708
+  scale 2.33506 2.33506 2.33506
+  children [
+    Shape {
+      appearance GlossyPaint {
+        baseColor 0.3 0.5 0
+      }
+      geometry Box {
+        size 1 1 1
+      }
+    }
+  ]
+  name "solid(7)"
+  boundingObject Box {
+    size 1 1 1
+  }
+}
+Solid {
+  translation 4.38028 1.16 -2.1534
+  rotation 0 1 0 1.5708
+  scale 2.33506 2.33506 2.33506
+  children [
+    Shape {
+      appearance GlossyPaint {
+        baseColor 0.3 0.5 0
+      }
+      geometry Box {
+        size 1 1 1
+      }
+    }
+  ]
+  name "solid(8)"
+  boundingObject Box {
+    size 1 1 1
+  }
+}
+Solid {
+  translation -0.952607 1.16 5.96651
   rotation 0 1 0 0.831217
   scale 2.33506 2.33506 2.33506
   children [
@@ -70,7 +109,7 @@ Solid {
   }
 }
 Solid {
-  translation -2.65196 1.16 4.44278
+  translation -2.68458 1.16 4.39455
   rotation 0 1 0 0.831217
   scale 2.33506 2.33506 2.33506
   children [
