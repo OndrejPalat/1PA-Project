@@ -7,6 +7,6 @@ centralWidgetVisible: 1
 projectionMode: PERSPECTIVE
 renderingMode: PLAIN
 orthographicViewHeight: 17.1022
-textFiles: 0 "controllers/pioneer3at_controll/pioneer3at_controll.m" "controllers/gps_signal/gps_signal.m"
+textFiles: 1 "controllers/pioneer3at_controll/pioneer3at_controll.m" "controllers/gps_signal/gps_signal.m"
 globalOptionalRendering: DistanceSensorRays
 consoles: Console:All:All

@@ -3,8 +3,8 @@ WorldInfo {
   coordinateSystem "NUE"
 }
 Viewpoint {
-  orientation 0.01354732313040274 0.7948747236308692 0.6066223238298682 3.1770918214462136
-  position 6.257053695038491 13.369922367742305 -7.736956759268782
+  orientation 0.37073047406461473 0.8652589301151621 0.33746984969888966 4.66168338801134
+  position -6.1496230742438485 6.334170389966078 0.9775934250623052
 }
 TexturedBackground {
 }
@@ -120,7 +120,7 @@ Robot {
   name "Golden Snitch"
   physics Physics {
   }
-  controller ""
+  controller "gps_signal"
 }
 Solid {
   translation -1.79173 0 -8.86692
