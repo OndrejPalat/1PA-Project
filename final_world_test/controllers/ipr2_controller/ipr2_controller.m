@@ -1,5 +1,5 @@
 % MATLAB controller for Webots
-% File:          ipr1_controller.m
+% File:          ipr2_controller.m
 % Date:
 % Description:
 % Author:
@@ -53,10 +53,8 @@ wb_distance_sensor_enable(ds1,TIME_STEP);
 ds6 = wb_robot_get_device('ds6');
 wb_distance_sensor_enable(ds6,TIME_STEP);
 
-dsCB1 = wb_robot_get_device('dsCB1');
-wb_distance_sensor_enable(dsCB1,TIME_STEP);
-dsCAR = wb_robot_get_device('dsCAR');
-wb_distance_sensor_enable(dsCAR,TIME_STEP);
+dsCB2 = wb_robot_get_device('dsCB2');
+wb_distance_sensor_enable(dsCB2,TIME_STEP);
 
 %touch_sensor
 ts0 = wb_robot_get_device('ts0');
@@ -67,37 +65,39 @@ wb_touch_sensor_enable(ts2,TIME_STEP);
 
 while wb_robot_step(TIME_STEP) ~= -1
 
-value_dsG = wb_distance_sensor_get_value(dsG)
-value_dsCB1 = wb_distance_sensor_get_value(dsCB1)
-value_dsCAR = wb_distance_sensor_get_value(dsCAR)
+value_dsCB2 = wb_distance_sensor_get_value(dsCB2)
+if value_dsCB2 < 999
+  init_grab_IPR2(motors)
+  open_gripper(motors)
+end
 
 value_BPS = wb_position_sensor_get_value(BPS)
-value_UPS = wb_position_sensor_get_value(UPS)
-value_LGPS = wb_position_sensor_get_value(LGPS)
-
-value_ts0 = wb_touch_sensor_get_value(ts0)
-value_ts2 = wb_touch_sensor_get_value(ts2)
-
-if value_dsCB1 < 500 && value_BPS < 0.05 && value_dsCAR < 999
-  init_grab_IPR1(motors)
-  open_gripper(motors)
-end
-if value_dsCB1 < 500 && value_dsG > 40 && value_BPS > 2.95
+value_dsG = wb_distance_sensor_get_value(dsG)
+if value_dsG > 40 && value_BPS < 0.81
   close_gripper(motors)
 end
-if value_ts0 > 200 && value_BPS > 0.11 
-  second_position(motors)
-end
-if value_ts0 > 200 && value_BPS < 0.11
+
+value_ts0 = wb_touch_sensor_get_value(ts0)
+value_LGPS = wb_position_sensor_get_value(LGPS)
+if value_ts0 > 200 && value_BPS < 1.49 && LGPS > 0.01
   second_position2(motors)
 end
-if value_BPS < 0.05 && value_UPS < -1.75
-  open_gripper(motors)
+if value_ts0 > 200 && value_BPS > 1.49
+  second_position(motors)
 end
-if value_BPS < 0.05 && value_UPS < 0 && value_LGPS < -0.65
+if value_ts0 > 200 && value_BPS > 2.99
+  open_gripper(motors)
   start_position(motors)
 end
+  % read the sensors, e.g.:
+  %  rgb = wb_camera_get_image(camera);
 
+  % Process here sensor data, images, etc.
+
+  % send actuator commands, e.g.:
+  %  wb_motor_set_postion(motor, 10.0);
+
+  % if your code plots some graphics, it needs to flushed like this:
   drawnow;
 
 end
