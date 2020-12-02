@@ -54,6 +54,9 @@ wb_distance_sensor_enable(ds1,TIME_STEP);
 ds6 = wb_robot_get_device('ds6');
 wb_distance_sensor_enable(ds6,TIME_STEP);
 
+dsCB = wb_robot_get_device('dsCB');
+wb_distance_sensor_enable(dsCB,TIME_STEP);
+
 %touch_sensor
 ts0 = wb_robot_get_device('ts0');
 wb_touch_sensor_enable(ts0,TIME_STEP);
@@ -62,13 +65,18 @@ wb_touch_sensor_enable(ts2,TIME_STEP);
 % main loop:
 
 while wb_robot_step(TIME_STEP) ~= -1
-value_dsG = wb_distance_sensor_get_value(dsG);
+value_dsG = wb_distance_sensor_get_value(dsG)
 value_ds1 = wb_distance_sensor_get_value(ds1);
 value_ds6 = wb_distance_sensor_get_value(ds6);
 
+value_dsCB = wb_distance_sensor_get_value(dsCB)
+value_dsCB2 = wb_distance_sensor_get_max_value(dsCB)
+value_dsCB3 = wb_distance_sensor_get_min_value(dsCB)
+
 value_BPS = wb_position_sensor_get_value(BPS)
-value_FPS = wb_position_sensor_get_value(FPS)
-value_RWPS = wb_position_sensor_get_value(RWPS)
+value_FPS = wb_position_sensor_get_value(FPS);
+value_RWPS = wb_position_sensor_get_value(RWPS);
+value_RGPS = wb_position_sensor_get_value(RGPS)
 value_UPS = wb_position_sensor_get_value(UPS);
 value_WPS = wb_position_sensor_get_value(WPS);
 
@@ -85,12 +93,12 @@ value_ts0 = wb_touch_sensor_get_value(ts0)
 value_ts2 = wb_touch_sensor_get_value(ts2)
 min = wb_distance_sensor_get_min_value(dsG);
 max = wb_distance_sensor_get_max_value(dsG);
-if value_ts0 > 200 && value_ts2 > 200 
+if value_ts0 > 200 && value_ts2 > 200 && value_BPS < 1.44
   second_position(motors)
 end
 
 
-if value_FPS > 1.89
+if value_FPS > 1.89 value_RGPS < 0.1
   wb_motor_set_position(base,1.45)
 end
 
@@ -103,6 +111,7 @@ end
 if value_FPS > 2.15 && value_UPS < -1.75
   open_gripper(motors)
 end
+
 
   drawnow;
 

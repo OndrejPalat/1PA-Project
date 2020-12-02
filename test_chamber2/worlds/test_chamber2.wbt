@@ -3,8 +3,8 @@ WorldInfo {
   coordinateSystem "NUE"
 }
 Viewpoint {
-  orientation -0.0016381207891352952 0.9783425591523855 0.2069858775652127 3.0966774080165997
-  position 0.39344811395211393 2.426443315616882 -3.328180879570599
+  orientation -0.07504091057838677 0.8928790532683594 0.4439998400609677 2.8283089739126583
+  position 1.1605884277923297 2.9274855303235428 -1.4858731792448168
 }
 TexturedBackground {
 }
@@ -29,7 +29,7 @@ P-Rob3 {
   controller "my_controller"
 }
 Can {
-  translation -0.41 0.80103 1.2
+  translation 0.14 0.80103 -0.69
   mass 0.1
 }
 Solid {
@@ -67,8 +67,55 @@ Solid {
     density 500
   }
 }
+Solid {
+  translation 0.16 0.885 -0.35
+  children [
+    Shape {
+      appearance PBRAppearance {
+      }
+      geometry DEF cyl Cylinder {
+        height 0.1
+        radius 0.03
+      }
+    }
+  ]
+  name "solid(3)"
+  boundingObject USE cyl
+  physics Physics {
+    density 500
+  }
+}
 IprHd6ms90 {
-  translation 1.06 0.74 0
+  translation 1.06 0.74 3.52079e-14
   rotation 0 1 0 3.14159
   controller "ipr_controller"
+  sensorsSlot [
+    DistanceSensor {
+      translation 7.71376e-07 0.11 0.39
+      rotation 0 1 0 1.5708
+      name "dsCB"
+    }
+  ]
+}
+ConveyorBelt {
+  translation 0.74 0.74 -0.34
+  size 1.5 0.1 0.2
+  borderThickness 0.01
+  speed 0.1
+}
+Solid {
+  translation 4.43 0.05 0
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 0 0
+        metalness 0
+      }
+      geometry DEF box Box {
+        size 0.01 0.01 0.01
+      }
+    }
+  ]
+  name "solid(2)"
+  boundingObject USE box
 }

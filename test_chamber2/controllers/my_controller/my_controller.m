@@ -83,13 +83,13 @@ wb_distance_sensor_enable(ds4R,TIME_STEP);
 while wb_robot_step(TIME_STEP) ~= -1
 
   % read the sensors, e.g.:
-value_dsG = wb_distance_sensor_get_value(dsG)
+value_dsG = wb_distance_sensor_get_value(dsG);
 %if value_dsG == min_value
   %init_grab_position(motors)
 %end
 
 %if value_dsG == 100 || value_dsG == 1500
-value_ps1 = wb_position_sensor_get_value(ps1)
+value_ps1 = wb_position_sensor_get_value(ps1);
 if value_ps1 < 0.1
   %init_grab_position(motors)
   %open_gripper(motors)
