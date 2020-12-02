@@ -1,8 +1,8 @@
 function [angle_deviation, turn_requests] = pioneer_move_along(distance, left_right, velocity,angle_deviation,...
         direction_vector, sensors, wheel_motors, compass, gps, TIME_STEP)
     
-    front_sensors_buffer = NaN(10, 1);
-    rear_sensors_buffer = NaN(10, 1);
+    front_sensors_buffer = NaN(20, 1);
+    rear_sensors_buffer = NaN(20, 1);
     sensors_idx = [];
     sensors_data = zeros(numel(sensors), 1);
     align_to_obstacle_requests = 1;
@@ -47,8 +47,8 @@ function [angle_deviation, turn_requests] = pioneer_move_along(distance, left_ri
         end
         
         if align_to_obstacle_requests > 0
-            front_sensors_buffer = NaN(10, 1);
-            rear_sensors_buffer = NaN(10, 1);
+            front_sensors_buffer = NaN(20, 1);
+            rear_sensors_buffer = NaN(20, 1);
             time_count = wb_robot_get_time();
             while wb_robot_step(TIME_STEP) ~= -1
                 if wb_robot_get_time() > time_count + align_delay
@@ -86,7 +86,8 @@ function [angle_deviation, turn_requests] = pioneer_move_along(distance, left_ri
                         wb_motor_set_velocity(wheel_motors(i), velocity);
                     end
                     break
-                end
+                end     
+                
                 if wb_robot_get_time() > time_align_start + 5 && break_requests == 0
                     break_requests = 1;
                     break_delay = 1;
@@ -98,7 +99,7 @@ function [angle_deviation, turn_requests] = pioneer_move_along(distance, left_ri
             align_to_obstacle_requests = 0;
         end
         
-        if break_requests > 0 && wb_robot_get_time > break_time_count + break_delay
+        if break_requests > 0 || wb_robot_get_time > break_time_count + break_delay
             for i = 1 : numel(wheel_motors)
                 wb_motor_set_velocity(wheel_motors(i), velocity);
             end
@@ -111,14 +112,12 @@ function [angle_deviation, turn_requests] = pioneer_move_along(distance, left_ri
                          compass, velocity, TIME_STEP)
             align_to_obstacle_requests = align_to_obstacle_requests + 1;
             angle_deviation = angle_deviation + orientation_ratio * 30;
-            break_requests = 0;
         end
         if sensors_data(sensors_idx(4)) > distance
             pioneer_turn(45, turn_orientation, 0, wheel_motors,...
                          compass, velocity, TIME_STEP)
             align_to_obstacle_requests = align_to_obstacle_requests + 1;
             angle_deviation = angle_deviation + orientation_ratio * 45;
-            break_requests = 0;
         end
         if sensors_data(sensors_idx(5)) > distance ||...
                 sensors_data(sensors_idx(6)) > distance
@@ -126,21 +125,18 @@ function [angle_deviation, turn_requests] = pioneer_move_along(distance, left_ri
                          compass, velocity, TIME_STEP)
             align_to_obstacle_requests = align_to_obstacle_requests + 1;
             angle_deviation = angle_deviation + orientation_ratio * 90;
-            break_requests = 0;
         end
         if sensors_data(sensors_idx(7)) > distance
             pioneer_turn(135, turn_orientation, 0, wheel_motors,...
                          compass, velocity, TIME_STEP)
             align_to_obstacle_requests = align_to_obstacle_requests + 1;
             angle_deviation = angle_deviation + orientation_ratio * 135;
-            break_requests = 0;
         end
         if sensors_data(sensors_idx(8)) > distance
             pioneer_turn(150, turn_orientation, 0, wheel_motors,...
                          compass, velocity, TIME_STEP)
             align_to_obstacle_requests = align_to_obstacle_requests + 1;
             angle_deviation = angle_deviation + orientation_ratio * 150;
-            break_requests = 0;
         end
         
         if sensors_data(sensors_idx(2)) > 11/10 * distance

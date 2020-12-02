@@ -27,7 +27,7 @@ function pioneer_turn(turn_angle, orientation, delay, wheel_motors,...
   end
   min_angle = end_angle + min_angle_interval;  
   if min_angle < 0
-    min_angle = end_angle + 360;
+    min_angle = min_angle + 360;
   end
   max_angle = end_angle + max_angle_interval;
   if max_angle > 360

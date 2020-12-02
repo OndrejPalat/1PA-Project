@@ -5,7 +5,7 @@ sceneTreePerspectives: 000000ff0000000100000002000000c0000000fa01000000020100000
 maximizedDockId: -1
 centralWidgetVisible: 1
 projectionMode: ORTHOGRAPHIC
-orthographicViewHeight: 10.8546
+orthographicViewHeight: 6.72854
 textFiles: 1 "../../../AppData/Local/Programs/Webots/projects/robots/adept/pioneer3/controllers/pioneer3dx_matlab/pioneer3dx_matlab.m" "controllers/pioneer3at_controll/pioneer3at_controll.m"
 globalOptionalRendering: LightSensorRays::DistanceSensorRays
 consoles: Console:All:All
