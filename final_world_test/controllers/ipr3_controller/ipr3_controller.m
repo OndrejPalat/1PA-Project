@@ -1,5 +1,5 @@
 % MATLAB controller for Webots
-% File:          ipr2_controller.m
+% File:          ipr3_controller.m
 % Date:
 % Description:
 % Author:
@@ -53,8 +53,8 @@ wb_distance_sensor_enable(ds1,TIME_STEP);
 ds6 = wb_robot_get_device('ds6');
 wb_distance_sensor_enable(ds6,TIME_STEP);
 
-dsCB2 = wb_robot_get_device('dsCB2');
-wb_distance_sensor_enable(dsCB2,TIME_STEP);
+dsCAR2 = wb_robot_get_device('dsCAR2');
+wb_distance_sensor_enable(dsCAR2,TIME_STEP);
 
 %touch_sensor
 ts0 = wb_robot_get_device('ts0');
@@ -62,43 +62,43 @@ wb_touch_sensor_enable(ts0,TIME_STEP);
 ts2 = wb_robot_get_device('ts2');
 wb_touch_sensor_enable(ts2,TIME_STEP);
 % main loop:
-
 while wb_robot_step(TIME_STEP) ~= -1
 
-value_dsCB2 = wb_distance_sensor_get_value(dsCB2)
-if value_dsCB2 < 999
-  init_grab_IPR2(motors)
+value_BPS = wb_position_sensor_get_value(BPS)
+if value_BPS < 0.1
+  prepare4grab(motors)
+end
+
+value_dsCAR2 = wb_distance_sensor_get_value(dsCAR2)
+if value_BPS > 4.59 && value_dsCAR2
+  init_grab_IPR3(motors)
   open_gripper(motors)
 end
 
-value_BPS = wb_position_sensor_get_value(BPS)
 value_dsG = wb_distance_sensor_get_value(dsG)
-if value_dsG > 40 && value_BPS < 1.5
-  close_gripper(motors)
+if value_dsG > 35 && value_BPS > 4.2
+close_gripper(motors)
 end
 
 value_ts0 = wb_touch_sensor_get_value(ts0)
+if value_ts0 > 210
+second_position(motors)
+end
+if value_ts0 > 200 && value_BPS < 1.8
+second_position2(motors)
+end
+
+value_WPS = wb_position_sensor_get_value(WPS)
+value_UPS = wb_position_sensor_get_value(UPS)
+if value_ts0 > 200 && value_BPS > 1.65 && value_WPS < -3.1 && value_BPS < 1.75
+open_gripper(motors)
+start_position(motors)
+end
+
 value_LGPS = wb_position_sensor_get_value(LGPS)
-if value_ts0 > 200 && value_BPS < 1.49 && LGPS > 0.01
-  second_position2(motors)
+if value_BPS < 1.71 && value_LGPS < -0.4 && value_UPS < -0.1
+start_position2(motors)
 end
-if value_ts0 > 200 && value_BPS > 1.49
-  second_position(motors)
-end
-if value_ts0 > 200 && value_BPS > 2.99
-  open_gripper(motors)
-  start_position(motors)
-end
-
-  % read the sensors, e.g.:
-  %  rgb = wb_camera_get_image(camera);
-
-  % Process here sensor data, images, etc.
-
-  % send actuator commands, e.g.:
-  %  wb_motor_set_postion(motor, 10.0);
-
-  % if your code plots some graphics, it needs to flushed like this:
   drawnow;
 
 end

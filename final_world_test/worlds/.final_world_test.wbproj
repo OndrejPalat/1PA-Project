@@ -6,6 +6,5 @@ maximizedDockId: -1
 centralWidgetVisible: 1
 renderingMode: PLAIN
 orthographicViewHeight: 1
-textFiles: 1 "controllers/ipr1_controller/ipr1_controller.m" "controllers/ipr2_controller/ipr2_controller.m"
-globalOptionalRendering: DistanceSensorRays
+textFiles: 2 "controllers/ipr1_controller/ipr1_controller.m" "controllers/ipr2_controller/ipr2_controller.m" "controllers/ipr3_controller/ipr3_controller.m"
 consoles: Console:All:All

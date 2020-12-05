@@ -8,6 +8,6 @@ wb_motor_set_position(base,3)
 wb_motor_set_position(forearm,2)
 wb_motor_set_position(wrist,-3.55)
 wb_motor_set_position(upper,-2)
-wb_motor_set_position(RW,-2.95)
+wb_motor_set_position(RW,-3)
 end
 
