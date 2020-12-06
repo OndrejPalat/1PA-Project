@@ -70,7 +70,7 @@ if value_BPS < 0.1
 end
 
 value_dsCAR2 = wb_distance_sensor_get_value(dsCAR2)
-if value_BPS > 4.59 && value_dsCAR2
+if value_BPS > 4.59 && value_dsCAR2 < 999
   init_grab_IPR3(motors)
   open_gripper(motors)
 end
