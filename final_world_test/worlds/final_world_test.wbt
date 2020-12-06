@@ -1,0 +1,256 @@
+#VRML_SIM R2020b utf8
+WorldInfo {
+  coordinateSystem "NUE"
+}
+Viewpoint {
+  orientation -0.9997917948398686 0.01275481075780471 0.01592739066534873 0.501926393863616
+  position -0.1482742971717832 7.250640291563903 10.637659150670542
+}
+TexturedBackground {
+  luminosity 1.3
+}
+TexturedBackgroundLight {
+}
+Floor {
+  size 10 5
+  appearance Parquetry {
+    type "dark strip"
+  }
+}
+Solid {
+  translation 0.0952025 0.38 -2.38308
+  rotation 0 1 0 -0.9162996938995747
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.6 0.6 0.6
+        metalness 0
+      }
+      geometry DEF shifter Box {
+        size 0.01 0.02 0.27
+      }
+    }
+  ]
+  name "shifter"
+  boundingObject USE shifter
+}
+PointLight {
+  attenuation 0 0 1
+  location 0 1.6 -1.9
+}
+PointLight {
+  attenuation 0 0 1
+  location 4.3 1.6 -1.9
+}
+IprHd6ms90 {
+  translation -4.32 0.3 -1.945
+  name "IPR(1)"
+  controller "ipr2_controller"
+  sensorsSlot [
+    DistanceSensor {
+      translation 0.12 0.08 -0.3
+      rotation 0 1 0 1.5708003061004252
+      name "dsCB2"
+    }
+  ]
+}
+PointLight {
+  attenuation 0 0 1
+  location -4.4 1.6 -1.9
+}
+Wall {
+  translation -5.1 0 -0.01
+  size 0.2 2.4 5
+}
+Wall {
+  translation 5.1 0 -0.01
+  name "wall(1)"
+  size 0.2 2.4 5
+}
+Wall {
+  translation 1.73472e-18 0 -2.6
+  name "wall(2)"
+  size 3 2.4 0.2
+}
+Wall {
+  translation -4.25 0 -2.6
+  name "wall(3)"
+  size 1.5 2.4 0.2
+}
+Wall {
+  translation 4.25 0 -2.6
+  name "wall(4)"
+  size 1.5 2.4 0.2
+}
+Window {
+  translation -2.5 0 -2.6
+  size 2 2.4 0.2
+}
+Window {
+  translation 2.5 0 -2.6
+  name "window(1)"
+  size 2 2.4 0.2
+}
+IprHd6ms90 {
+  translation -4.33 0.29 1.71
+  controller "ipr1_controller"
+  sensorsSlot [
+    GPS {
+    }
+    DistanceSensor {
+      translation 0.18 -0.13 0
+      name "dsCAR"
+    }
+    DistanceSensor {
+      translation -0.49 0.08 0.01
+      name "dsCB1"
+    }
+  ]
+}
+Table {
+  translation -4.46 0 1.63
+  size 0.4 0.29 1
+}
+Table {
+  translation -4.31 0 -1.95
+  name "table(1)"
+  size 0.7 0.3 0.4
+}
+Table {
+  translation 2.73 -1.73472e-18 -1.99
+  name "table(2)"
+  size 0.7 0.27 0.3
+}
+Table {
+  translation 2.44 -1.73472e-18 -1.56
+  name "table(3)"
+  size 0.7 0.28 0.3
+}
+ConveyorBelt {
+  translation -4.82 0 -0.37
+  rotation 0 1 0 -1.5707996938995747
+  size 4.2 0.36 0.3
+  borderThickness 0.01
+  speed 0.1
+}
+ConveyorBelt {
+  translation -0.53 0 -2.31
+  rotation 0 1 0 -3.141592653589793
+  name "conveyor belt(1)"
+  size 7.35 0.37 0.3
+  borderThickness 0.01
+  speed 0.1
+}
+Pioneer3at {
+  translation -3.98 0.11 1.7
+}
+Pioneer3at {
+  translation 3.47 0.11 -1.56
+  rotation 0 1 0 -1.5707953071795862
+  name "Pioneer 3-AT(1)"
+}
+Solid {
+  translation -4.77 0.39 1.62
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 0 0
+        metalness 0
+      }
+      geometry DEF SOLID Cylinder {
+        height 0.06
+        radius 0.02
+      }
+    }
+  ]
+  boundingObject USE SOLID
+  physics Physics {
+    density 500
+  }
+}
+Solid {
+  translation -3.94 0.4 -2.28
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 0 0
+        metalness 0
+      }
+      geometry DEF SOLID Cylinder {
+        height 0.06
+        radius 0.02
+      }
+    }
+  ]
+  name "solid(1)"
+  boundingObject USE SOLID
+  physics Physics {
+    density 500
+  }
+}
+Solid {
+  translation -2.88 0.4 -2.28
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 0 0
+        metalness 0
+      }
+      geometry DEF SOLID Cylinder {
+        height 0.06
+        radius 0.02
+      }
+    }
+  ]
+  name "solid(2)"
+  boundingObject USE SOLID
+  physics Physics {
+    density 500
+  }
+}
+Solid {
+  translation 2.73 0.31 -1.56
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 0 0
+        metalness 0
+      }
+      geometry DEF SOLID Cylinder {
+        height 0.06
+        radius 0.02
+      }
+    }
+  ]
+  name "solid(3)"
+  boundingObject USE SOLID
+  physics Physics {
+    density 500
+  }
+}
+CeilingSpotLight {
+  translation -4.33 1.63 -2.51
+  rotation 1 0 0 -1.5707953071795862
+}
+CeilingSpotLight {
+  translation 0 1.63 -2.51
+  rotation 1 0 0 -1.5707953071795862
+  name "ceiling light(1)"
+}
+CeilingSpotLight {
+  translation 4.3 1.63 -2.51
+  rotation 1 0 0 -1.5707953071795862
+  name "ceiling light(2)"
+}
+IprHd6ms90 {
+  translation 2.73 0.27 -1.95
+  name "IPR(2)"
+  controller "ipr3_controller"
+  sensorsSlot [
+    DistanceSensor {
+      translation 1.93726e-07 -0.15 0.3
+      rotation 0 1 0 -1.5707953071795862
+      name "dsCAR2"
+    }
+  ]
+}
