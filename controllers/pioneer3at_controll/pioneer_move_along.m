@@ -1,5 +1,5 @@
-function [angle_deviation, turn_requests] = pioneer_move_along(distance, left_right, velocity,angle_deviation,...
-        direction_vector, sensors, wheel_motors, compass, gps, TIME_STEP)
+function [angle_deviation, turn_requests, turn_orientation2] = pioneer_move_along(distance, left_right,...
+    velocity, angle_deviation, sensors, wheel_motors, compass, gps, TIME_STEP)
     
     front_sensors_buffer = NaN(10, 1);
     rear_sensors_buffer = NaN(10, 1);

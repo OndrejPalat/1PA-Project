@@ -26,7 +26,7 @@ while wb_robot_step(TIME_STEP) ~= -1
   if i == precision
     gps_position = mean(gps_data);
     break
-  end 
+  end
 end
 
 
@@ -34,7 +34,7 @@ while wb_robot_step(TIME_STEP) ~= -1
 
   while wb_receiver_get_queue_length(receiver) > 0    
     message = wb_receiver_get_data(receiver, 'double');
-    message = char(message')
+    message = char(message');
     if strcmp(message, 'send_gps')
       send_gps_requests = 1;
     end

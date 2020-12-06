@@ -3,8 +3,8 @@ WorldInfo {
   coordinateSystem "NUE"
 }
 Viewpoint {
-  orientation 0.37073047406461473 0.8652589301151621 0.33746984969888966 4.66168338801134
-  position -6.1496230742438485 6.334170389966078 0.9775934250623052
+  orientation -0.1184076142865142 0.911901387521423 0.3929573721352986 2.6052729108828103
+  position 11.181751919925091 4.894320447175837 -7.675826217453157
 }
 TexturedBackground {
 }
@@ -92,13 +92,16 @@ Solid {
   boundingObject USE wall
 }
 Robot {
-  translation 0 0.19 1
+  translation 10.4312 0.19 -7.30732
   children [
     Receiver {
+      channel 1
     }
     Emitter {
+      channel 1
     }
     GPS {
+      accuracy 2
     }
     Solid {
       children [
@@ -139,8 +142,8 @@ Solid {
   boundingObject USE wall
 }
 Solid {
-  translation -4.9274 0 3.10944
-  rotation 0 -1 0 1.09301
+  translation -5.43475 1.77636e-14 3.36072
+  rotation 0 -1 0 0.981745
   children [
     Shape {
       appearance GlossyPaint {
@@ -202,17 +205,20 @@ Solid {
   boundingObject USE wall
 }
 Pioneer3at {
-  translation -0.358183 0.11 -2.38557
+  translation 6.87179 0.11 -1.9694
   controller "pioneer3at_controll"
   extensionSlot [
     GPS {
+      accuracy 2
     }
     Emitter {
+      channel 1
     }
     Compass {
       rotation -0.7071067811865476 0 0.7071067811865476 3.141592653589793
     }
     Receiver {
+      channel 1
     }
   ]
 }
