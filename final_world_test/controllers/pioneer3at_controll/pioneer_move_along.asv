@@ -1,6 +1,5 @@
-function [angle_deviation, turn_requests, turn_orientation2, set_radio_requests] =...
-    pioneer_move_along(distance, left_right, velocity, angle_deviation, sensors,...
-    parking_sensors, wheel_motors, compass, gps, receiver, TIME_STEP)
+function [angle_deviation, turn_requests, turn_orientation2] = pioneer_move_along(distance, left_right,...
+    velocity, angle_deviation, sensors, parking_sensors, wheel_motors, compass, gps, receiver, TIME_STEP)
     
     front_sensors_buffer = NaN(10, 1);
     rear_sensors_buffer = NaN(10, 1);
@@ -21,8 +20,6 @@ function [angle_deviation, turn_requests, turn_orientation2, set_radio_requests]
     turn_requests = 0;
     parking_signal = 0;
     time_turn = 0;
-    set_radio_requests = 0;
-    message = '';
     
     if left_right == "left"
         sensors_idx = [16, 1, 2, 3, 4, 5, 6, 7, 8];
@@ -45,11 +42,6 @@ function [angle_deviation, turn_requests, turn_orientation2, set_radio_requests]
         end
         for i = 1 : numel(parking_sensors)
             parking_sensors_data(i) = wb_distance_sensor_get_value(parking_sensors(i));
-        end
-        
-        if wb_receiver_get_queue_length(receiver) > 0
-            message = wb_receiver_get_data(receiver, 'double');
-            message = char(message');
         end
         
         front_sensors_buffer = [front_sensors_buffer(2:end);...
@@ -221,10 +213,12 @@ function [angle_deviation, turn_requests, turn_orientation2, set_radio_requests]
         end
         
         if parking_signal == 1 &&...
-                parking_sensors_data(parking_sensors_idx(1)) > 950 &&...
-                parking_sensors_data(parking_sensors_idx(2)) > 700 &&...
-                parking_sensors_data(parking_sensors_idx(2)) < 850 &&...
-                parking_sensors_data(parking_sensors_idx(3)) > 950
+                parking_sensors_data(parking_sensors_idx(1)) > 30 &&...
+                parking_sensors_data(parking_sensors_idx(1)) < 250 &&...
+                parking_sensors_data(parking_sensors_idx(2)) > 300 &&...
+                parking_sensors_data(parking_sensors_idx(2)) < 750 &&...
+                parking_sensors_data(parking_sensors_idx(3)) > 750 &&...
+                parking_sensors_data(parking_sensors_idx(3)) < 950
             
             for i = 1 : numel(wheel_motors)
                 wb_motor_set_velocity(wheel_motors(i), 0);
@@ -234,19 +228,15 @@ function [angle_deviation, turn_requests, turn_orientation2, set_radio_requests]
         if parking_signal == 1 && strcmp(message, 'loading_complete')
             pioneer_turn(90, turn_orientation, 0, wheel_motors,...
                          compass, velocity, TIME_STEP)
-            for i = 1 : numel(wheel_motors)
-                wb_motor_set_velocity(wheel_motors(i), velocity);
-            end
             time_count = wb_robot_get_time;
-            while wb_robot_step(TIME_STEP) ~= 1
-                if wb_robot_get_time > time_count + 3
-                    break
-                end
-            end            
-            set_radio_requests = 1;
-            break_requests = 1;
+            while wb_robot_step(TIME_STEP) ~= 0
+                
+            end
+            
+            set_radio_request = 1;
+            break_request = 1;
             break_delay = 0;
-            turn_requests = 0;
+            
         end        
     end
    

@@ -3,6 +3,9 @@ function angle_deviation = pioneer_react_to_obstacle(collision_CCW_angle,...
             velocity, gps_destination, gps, TIME_STEP)
     
     direction_obstacle_angle = NaN;
+    if isempty(turn_orientation_request)
+        turn_orientation_request = "";
+    end    
     if turn_orientation_request ~= "CW" && turn_orientation_request ~= "CCW"
         compass_vector = wb_compass_get_values(compass);
         direction_vector = pioneer_get_direction(gps_destination, 100, velocity,... 

@@ -9,8 +9,6 @@ receiver = wb_robot_get_device('receiver');
 gps = wb_robot_get_device('gps');
 wb_gps_enable(gps, TIME_STEP);
 wb_receiver_enable(receiver, TIME_STEP);
-wb_receiver_set_channel(receiver, 1);
-wb_emitter_set_channel(emitter, 1);
 
 precision = 100;
 gps_data = zeros(precision, 3);
