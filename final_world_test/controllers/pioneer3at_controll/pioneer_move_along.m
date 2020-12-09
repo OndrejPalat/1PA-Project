@@ -23,6 +23,8 @@ function [angle_deviation, turn_requests, turn_orientation2, set_radio_requests]
     time_turn = 0;
     set_radio_requests = 0;
     message = '';
+    time_parking = 0;
+    is_parked = 0;
     
     if left_right == "left"
         sensors_idx = [16, 1, 2, 3, 4, 5, 6, 7, 8];
@@ -189,7 +191,8 @@ function [angle_deviation, turn_requests, turn_orientation2, set_radio_requests]
                   compass, velocity, TIME_STEP);
             parking_signal = 1;
             align_to_obstacle_requests = 0;
-            break_requests = 0;              
+            break_requests = 0;
+            time_parking = wb_robot_get_time;
         end
         
         if parking_sensors_data(parking_sensors_idx(3)) > 30 &&...
@@ -221,13 +224,14 @@ function [angle_deviation, turn_requests, turn_orientation2, set_radio_requests]
         end
         
         if parking_signal == 1 &&...
-                parking_sensors_data(parking_sensors_idx(1)) > 950 &&...
+                parking_sensors_data(parking_sensors_idx(1)) > 960 &&...
                 parking_sensors_data(parking_sensors_idx(2)) > 700 &&...
-                parking_sensors_data(parking_sensors_idx(2)) < 850 &&...
-                parking_sensors_data(parking_sensors_idx(3)) > 950
+                parking_sensors_data(parking_sensors_idx(2)) < 920 &&...
+                parking_sensors_data(parking_sensors_idx(3)) > 960
             
             for i = 1 : numel(wheel_motors)
                 wb_motor_set_velocity(wheel_motors(i), 0);
+                is_parked = 1;
             end            
         end
         
@@ -247,7 +251,12 @@ function [angle_deviation, turn_requests, turn_orientation2, set_radio_requests]
             break_requests = 1;
             break_delay = 0;
             turn_requests = 0;
-        end        
+        end
+        
+        if parking_signal == 1 && is_parked == 0 &&...
+                wb_robot_get_time > time_parking + 20
+            parking_signal = 0;
+        end
     end
    
 end

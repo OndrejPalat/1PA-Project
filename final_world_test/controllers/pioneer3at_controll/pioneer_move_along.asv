@@ -1,5 +1,6 @@
-function [angle_deviation, turn_requests, turn_orientation2] = pioneer_move_along(distance, left_right,...
-    velocity, angle_deviation, sensors, parking_sensors, wheel_motors, compass, gps, receiver, TIME_STEP)
+function [angle_deviation, turn_requests, turn_orientation2, set_radio_requests] =...
+    pioneer_move_along(distance, left_right, velocity, angle_deviation, sensors,...
+    parking_sensors, wheel_motors, compass, gps, receiver, TIME_STEP)
     
     front_sensors_buffer = NaN(10, 1);
     rear_sensors_buffer = NaN(10, 1);
@@ -20,6 +21,9 @@ function [angle_deviation, turn_requests, turn_orientation2] = pioneer_move_alon
     turn_requests = 0;
     parking_signal = 0;
     time_turn = 0;
+    set_radio_requests = 0;
+    message = '';
+    time_parking = 0;
     
     if left_right == "left"
         sensors_idx = [16, 1, 2, 3, 4, 5, 6, 7, 8];
@@ -42,6 +46,11 @@ function [angle_deviation, turn_requests, turn_orientation2] = pioneer_move_alon
         end
         for i = 1 : numel(parking_sensors)
             parking_sensors_data(i) = wb_distance_sensor_get_value(parking_sensors(i));
+        end
+        
+        if wb_receiver_get_queue_length(receiver) > 0
+            message = wb_receiver_get_data(receiver, 'double');
+            message = char(message');
         end
         
         front_sensors_buffer = [front_sensors_buffer(2:end);...
@@ -181,7 +190,8 @@ function [angle_deviation, turn_requests, turn_orientation2] = pioneer_move_alon
                   compass, velocity, TIME_STEP);
             parking_signal = 1;
             align_to_obstacle_requests = 0;
-            break_requests = 0;              
+            break_requests = 0;
+            time_parking = wb_robot_get_time;
         end
         
         if parking_sensors_data(parking_sensors_idx(3)) > 30 &&...
@@ -208,36 +218,42 @@ function [angle_deviation, turn_requests, turn_orientation2] = pioneer_move_alon
         
         if sensors_data(sensors_idx(3)) > 1000 && parking_signal == 1
             pioneer_turn(30, turn_orientation, 0, wheel_motors,...
-                         compass, velocity, TIME_STEP)
-            align_to_obstacle_requests = 1;
+                         compass, velocity, TIME_STEP)            
         end
         
         if parking_signal == 1 &&...
-                parking_sensors_data(parking_sensors_idx(1)) > 30 &&...
-                parking_sensors_data(parking_sensors_idx(1)) < 250 &&...
-                parking_sensors_data(parking_sensors_idx(2)) > 300 &&...
-                parking_sensors_data(parking_sensors_idx(2)) < 750 &&...
-                parking_sensors_data(parking_sensors_idx(3)) > 750 &&...
-                parking_sensors_data(parking_sensors_idx(3)) < 950
+                parking_sensors_data(parking_sensors_idx(1)) > 950 &&...
+                parking_sensors_data(parking_sensors_idx(2)) > 700 &&...
+                parking_sensors_data(parking_sensors_idx(2)) < 850 &&...
+                parking_sensors_data(parking_sensors_idx(3)) > 950
             
             for i = 1 : numel(wheel_motors)
                 wb_motor_set_velocity(wheel_motors(i), 0);
+                is_parked = 1;
             end            
         end
         
         if parking_signal == 1 && strcmp(message, 'loading_complete')
             pioneer_turn(90, turn_orientation, 0, wheel_motors,...
                          compass, velocity, TIME_STEP)
-            time_count = wb_robot_get_time;
-            while wb_robot_step(TIME_STEP) ~= 0
-                
+            for i = 1 : numel(wheel_motors)
+                wb_motor_set_velocity(wheel_motors(i), velocity);
             end
-            
-            set_radio_request = 1;
-            break_request = 1;
+            time_count = wb_robot_get_time;
+            while wb_robot_step(TIME_STEP) ~= 1
+                if wb_robot_get_time > time_count + 3
+                    break
+                end
+            end            
+            set_radio_requests = 1;
+            break_requests = 1;
             break_delay = 0;
-            
-        end        
+            turn_requests = 0;
+        end
+        
+        if parking_signal == 1 && is_parked == 0 @ wb_robot_get_time > time_parking + 20
+            parking_signal = 0;
+        end
     end
    
 end
