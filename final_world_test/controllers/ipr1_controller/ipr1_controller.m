@@ -67,6 +67,8 @@ wb_touch_sensor_enable(ts2,TIME_STEP);
 
 while wb_robot_step(TIME_STEP) ~= -1
 
+gps_signal_source
+
 value_dsG = wb_distance_sensor_get_value(dsG)
 value_dsCB1 = wb_distance_sensor_get_value(dsCB1)
 value_dsCAR = wb_distance_sensor_get_value(dsCAR)
