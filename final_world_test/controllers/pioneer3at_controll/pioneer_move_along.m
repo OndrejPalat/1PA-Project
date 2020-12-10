@@ -60,7 +60,7 @@ function [angle_deviation, turn_requests, turn_orientation2, set_radio_requests]
             sensors_data(sensors_idx(1))];
         
         if mean(front_sensors_buffer(~isnan(front_sensors_buffer)))...
-                < distance * 7/9 && break_requests == 0 && parking_signal == 0
+                < distance * 7.8/9 && break_requests == 0 && parking_signal == 0
             break_requests = 1;
             turn_requests = 6;
             break_delay = 3;
@@ -171,8 +171,8 @@ function [angle_deviation, turn_requests, turn_orientation2, set_radio_requests]
                          compass, velocity, TIME_STEP)
             time_turn = wb_robot_get_time;
         end
-        if sensors_data(sensors_idx(2)) < 8/9 * distance &&...
-                sensors_data(sensors_idx(2)) > 7/9 * distance &&...
+        if sensors_data(sensors_idx(2)) < 8.2/9 * distance &&...
+                sensors_data(sensors_idx(2)) > 7.8/9 * distance &&...
                 wb_robot_get_time > time_turn + 5 && parking_signal == 0
             pioneer_turn(5, turn_orientation2, 0, wheel_motors,...
                          compass, velocity, TIME_STEP);

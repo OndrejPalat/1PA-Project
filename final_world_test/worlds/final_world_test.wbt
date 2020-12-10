@@ -3,8 +3,8 @@ WorldInfo {
   coordinateSystem "NUE"
 }
 Viewpoint {
-  orientation -0.9710434795639907 -0.2345087778758273 -0.04560914267384924 0.5011480616870351
-  position -1.264582285724554 9.178202907588258 16.143305369345754
+  orientation 0.7914337245206485 0.5848429629718462 0.17773960828607083 5.629383856827868
+  position -3.8166995730790276 11.200494451054176 19.80116596131094
 }
 TexturedBackground {
   luminosity 1.3
@@ -12,21 +12,25 @@ TexturedBackground {
 TexturedBackgroundLight {
 }
 Floor {
-  translation 0 0 2.3
+  translation 0 0.09 2.3
   size 10 9.95
   appearance Parquetry {
     type "dark strip"
   }
 }
+Ramp30deg {
+  translation 6.43917 0.68 -1.3314
+  rotation 0 -1 0 1.59043
+}
 ConveyorBelt {
-  translation 5.21 0.01 -1.57
+  translation 5.21 0.09 -1.57
   rotation 0 1 0 3.141592653589793
   name "conveyor belt(2)"
   size 5 0.28 0.3
   speed 0.1
 }
 SolidBox {
-  translation -4.26 0.15 5.14433
+  translation -4.26 0.23 5.14433
   name "box(1)"
   size 0.01 0.25 0.05
   appearance PaintedWood {
@@ -34,7 +38,7 @@ SolidBox {
   }
 }
 SolidBox {
-  translation -4.26 0.15 0.28433
+  translation -4.26 0.23 0.28433
   name "box(5)"
   size 0.01 0.25 0.05
   appearance PaintedWood {
@@ -42,7 +46,7 @@ SolidBox {
   }
 }
 SolidBox {
-  translation -4.26 0.15 5.29433
+  translation -4.26 0.23 5.29433
   name "box(3)"
   size 0.01 0.25 0.05
   appearance PaintedWood {
@@ -50,7 +54,7 @@ SolidBox {
   }
 }
 SolidBox {
-  translation -4.26 0.15 2.74433
+  translation -4.26 0.23 2.74433
   name "box(9)"
   size 0.01 0.25 0.05
   appearance PaintedWood {
@@ -58,7 +62,7 @@ SolidBox {
   }
 }
 SolidBox {
-  translation -4.26 0.15 0.13433
+  translation -4.26 0.23 0.13433
   name "box(6)"
   size 0.01 0.25 0.05
   appearance PaintedWood {
@@ -66,7 +70,7 @@ SolidBox {
   }
 }
 SolidBox {
-  translation -4.26 0.15 4.99433
+  translation -4.26 0.23 4.99433
   name "box(2)"
   size 0.01 0.25 0.05
   appearance PaintedWood {
@@ -74,7 +78,7 @@ SolidBox {
   }
 }
 SolidBox {
-  translation -4.26 0.15 2.59433
+  translation -4.26 0.23 2.59433
   name "box(7)"
   size 0.01 0.25 0.05
   appearance PaintedWood {
@@ -82,7 +86,7 @@ SolidBox {
   }
 }
 SolidBox {
-  translation -4.26 0.15 2.89433
+  translation -4.26 0.23 2.89433
   name "box(8)"
   size 0.01 0.25 0.05
   appearance PaintedWood {
@@ -90,7 +94,7 @@ SolidBox {
   }
 }
 SolidBox {
-  translation -4.26 0.15 0.43433
+  translation -4.26 0.23 0.43433
   name "box(4)"
   size 0.01 0.25 0.05
   appearance PaintedWood {
@@ -98,7 +102,7 @@ SolidBox {
   }
 }
 Solid {
-  translation 0.0952025 0.38 -2.38308
+  translation 0.0952025 0.46 -2.38308
   rotation 0 1 0 -0.9162996938995747
   children [
     Shape {
@@ -123,7 +127,7 @@ PointLight {
   location 4.3 1.6 -1.9
 }
 IprHd6ms90 {
-  translation -4.32 0.3 -1.945
+  translation -4.32 0.38 -1.945
   name "IPR(1)"
   controller "ipr2_controller"
   sensorsSlot [
@@ -158,7 +162,7 @@ Wall {
   size 0.2 1.8 0.37
 }
 Wall {
-  translation 4.80927 0 -1.25966
+  translation 4.80927 0.08 -1.25966
   name "wall(10)"
   size 0.9 0.7 0.1
   appearance Roughcast {
@@ -215,7 +219,7 @@ Wall {
   }
 }
 Wall {
-  translation 4.80927 0 -1.87966
+  translation 4.80927 0.08 -1.87966
   name "wall(11)"
   size 0.9 0.7 0.1
   appearance Roughcast {
@@ -226,7 +230,7 @@ Wall {
   }
 }
 Wall {
-  translation 4.80927 0.65 -1.82966
+  translation 4.80927 0.73 -1.82966
   rotation 1 0 0 1.5708
   name "wall(12)"
   size 0.9 0.52 0.1
@@ -243,9 +247,9 @@ Wall {
   size 3 2.4 0.2
 }
 Wall {
-  translation 1.73472e-18 0 7.21
+  translation 0.5 0.01 7.21
   name "wall(6)"
-  size 3 2.4 0.2
+  size 2 2.4 0.2
 }
 Wall {
   translation -4.25 0 -2.6
@@ -253,9 +257,9 @@ Wall {
   size 1.5 2.4 0.2
 }
 Wall {
-  translation -4.25 0 7.18
+  translation -3.82 0 7.18
   name "wall(7)"
-  size 1.5 2.4 0.2
+  size 2.4 2.4 0.2
 }
 Wall {
   translation 4.25 0 -2.6
@@ -282,7 +286,7 @@ Window {
   size 2 2.4 0.2
 }
 IprHd6ms90 {
-  translation -4.33 0.29 2.75
+  translation -4.33 0.37 2.75
   controller "ipr1_controller"
   sensorsSlot [
     Receiver {
@@ -308,7 +312,7 @@ IprHd6ms90 {
   ]
 }
 Table {
-  translation -4.46 0 2.66
+  translation -4.46 0.08 2.66
   size 0.4 0.29 8.8
   feetSize 0.1 4.4
   trayAppearance VarnishedPine {
@@ -325,17 +329,17 @@ Table {
   }
 }
 Table {
-  translation -4.31 0 -1.95
+  translation -4.31 0.08 -1.95
   name "table(1)"
   size 0.7 0.3 0.4
 }
 Table {
-  translation 2.67 0 -1.95
+  translation 2.67 0.07 -1.95
   name "table(2)"
   size 0.7 0.3 0.4
 }
 Table {
-  translation -0.82 0 -1.57
+  translation -0.82 0.08 -1.57
   name "table(3)"
   size 7 0.29 0.35
   feetSize 5 0.29
@@ -353,14 +357,14 @@ Table {
   }
 }
 ConveyorBelt {
-  translation -4.82 0 0.17
+  translation -4.82 0.08 0.17
   rotation 0 1 0 -1.5707996938995747
   size 5.2 0.36 0.3
   borderThickness 0.01
   speed 0.1
 }
 ConveyorBelt {
-  translation -0.53 0 -2.31
+  translation -0.53 0.08 -2.31
   rotation 0 1 0 -3.141592653589793
   name "conveyor belt(1)"
   size 7.35 0.37 0.3
@@ -368,7 +372,7 @@ ConveyorBelt {
   speed 0.1
 }
 Pioneer3at {
-  translation 22.3465 0.17 41.5042
+  translation 1.3333 0.19 9.68456
   rotation 0 1 0 -3.1415853071795863
   name "Pioneer 3-AT(1)"
   controller "pioneer3at_controll"
@@ -502,7 +506,7 @@ Pioneer3at {
   ]
 }
 Solid {
-  translation -4.77 0.39 1.62
+  translation -4.77 0.47 1.62
   children [
     Shape {
       appearance PBRAppearance {
@@ -521,7 +525,7 @@ Solid {
   }
 }
 Solid {
-  translation 5.14 0.31 -1.56
+  translation 5.14 0.39 -1.56
   children [
     Shape {
       appearance PBRAppearance {
@@ -555,7 +559,7 @@ CeilingSpotLight {
   name "ceiling light(2)"
 }
 IprHd6ms90 {
-  translation 2.73 0.27 -1.95
+  translation 2.73 0.35 -1.95
   name "IPR(2)"
   controller "ipr3_controller"
   sensorsSlot [
@@ -567,7 +571,7 @@ IprHd6ms90 {
   ]
 }
 Floor {
-  translation 30 -0.01 45
+  translation 30 0.07 45
   name "ground"
   size 150 120
   tileSize 10 10
@@ -584,7 +588,7 @@ TheThreeTowers {
   rotation 0 1 0 -1.5707953071795862
 }
 Floor {
-  translation 1.5 0.05 64.25
+  translation 1.5 0.08 64.25
   name "floor(1)"
   size 93 81.5
   tileSize 10 10
@@ -847,7 +851,7 @@ PicketFence {
   numberOfSegments 55
 }
 CurvedRoadSegment {
-  translation 45.1497 0.01 48.0165
+  translation 45.1497 0.08 48.0165
   rotation 0 1 0 1.57735
   name "road(1)"
   roadBorderHeight 0.05
@@ -858,7 +862,7 @@ CurvedRoadSegment {
   totalAngle 1.6
 }
 CurvedRoadSegment {
-  translation 105.163 0.01 48.9096
+  translation 105.163 0.08 48.9096
   rotation 0 -1 0 2.55255
   name "road(2)"
   roadBorderHeight 0.05
@@ -872,7 +876,7 @@ CurvedRoadSegment {
   leftBorderBoundingObject TRUE
 }
 StraightRoadSegment {
-  translation -45 0.01 18
+  translation -45 0.08 18
   rotation 0 1 0 1.5707963267948968
   roadBorderHeight 0.05
   startingRoadBorderWidth 2
@@ -883,7 +887,7 @@ StraightRoadSegment {
   leftBorderBoundingObject TRUE
 }
 StraightRoadSegment {
-  translation 80.1965 0.01 65.4599
+  translation 80.1965 0.08 65.4599
   rotation 0 1 0 0.602139
   name "road(3)"
   roadBorderHeight 0.05
@@ -892,11 +896,11 @@ StraightRoadSegment {
   length 40
 }
 Warehouse {
-  translation 21.46 0 1.44
+  translation 24.42 0 1.44
 }
 BigGlassTower {
   translation 77.04 0 95.79
 }
 ResidentialBuilding {
-  translation 66.51 0 0
+  translation 70.54 0 0
 }
