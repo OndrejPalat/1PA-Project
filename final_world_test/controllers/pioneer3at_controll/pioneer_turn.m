@@ -12,7 +12,8 @@ function pioneer_turn(turn_angle, orientation, delay, wheel_motors,...
     max_angle_interval = 5;
   end
   compass_vector = wb_compass_get_values(compass);
-  start_angle = acosd(compass_vector(1));
+  start_angle = acosd(compass_vector(1) /...
+        sqrt(compass_vector(1)^2 + compass_vector(3)^2));
   if compass_vector(3) < 0
     start_angle = -start_angle;
   end
@@ -42,20 +43,18 @@ function pioneer_turn(turn_angle, orientation, delay, wheel_motors,...
   
   while wb_robot_step(TIME_STEP) ~= -1
     compass_vector = wb_compass_get_values(compass);
-    now_angle = acosd(compass_vector(1));
+    now_angle = acosd(compass_vector(1) /...
+        sqrt(compass_vector(1)^2 + compass_vector(3)^2));
     if compass_vector(3) < 0
       now_angle = -now_angle;
     end
     if now_angle < 0
       now_angle = now_angle + 360;
     end
-    if now_angle > min_angle & now_angle < max_angle
-      for i = 1 : numel(wheel_motors)
-        wb_motor_set_velocity(wheel_motors(i), velocity);
-      end
+    if now_angle > min_angle && now_angle < max_angle
       break
     end
-    if min_angle > max_angle & (now_angle > min_angle | now_angle < max_angle)       
+    if min_angle > max_angle && (now_angle > min_angle || now_angle < max_angle)       
       break
     end
   end

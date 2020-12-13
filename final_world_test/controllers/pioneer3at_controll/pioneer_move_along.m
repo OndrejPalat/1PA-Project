@@ -21,10 +21,13 @@ function [angle_deviation, turn_requests, turn_orientation2, set_radio_requests]
     turn_requests = 0;
     parking_signal = 0;
     time_turn = 0;
+    turn_delay = 1;
     set_radio_requests = 0;
     message = '';
     time_parking = 0;
     is_parked = 0;
+    move_along_deviation = 0;
+    move_along_deviation2 = 0;
     
     if left_right == "left"
         sensors_idx = [16, 1, 2, 3, 4, 5, 6, 7, 8];
@@ -120,26 +123,19 @@ function [angle_deviation, turn_requests, turn_orientation2, set_radio_requests]
             align_to_obstacle_requests = 0;
         end
         
-        if break_requests > 0 && wb_robot_get_time > break_time_count + break_delay
-            for i = 1 : numel(wheel_motors)
-                wb_motor_set_velocity(wheel_motors(i), velocity);
-            end
-            break
-        end
-        
         
         if sensors_data(sensors_idx(3)) > distance && parking_signal == 0
             pioneer_turn(30, turn_orientation, 0, wheel_motors,...
                          compass, velocity, TIME_STEP)
             align_to_obstacle_requests = align_to_obstacle_requests + 1;
-            angle_deviation = angle_deviation + orientation_ratio * 30;
+            move_along_deviation = move_along_deviation + 30;
             break_requests = 0;
         end
         if sensors_data(sensors_idx(4)) > distance && parking_signal == 0
             pioneer_turn(45, turn_orientation, 0, wheel_motors,...
                          compass, velocity, TIME_STEP)
             align_to_obstacle_requests = align_to_obstacle_requests + 1;
-            angle_deviation = angle_deviation + orientation_ratio * 45;
+            move_along_deviation = move_along_deviation + 45;
             break_requests = 0;
         end
         if sensors_data(sensors_idx(5)) > distance ||...
@@ -147,35 +143,42 @@ function [angle_deviation, turn_requests, turn_orientation2, set_radio_requests]
             pioneer_turn(90, turn_orientation, 0, wheel_motors,...
                          compass, velocity, TIME_STEP)
             align_to_obstacle_requests = align_to_obstacle_requests + 1;
-            angle_deviation = angle_deviation + orientation_ratio * 90;
+            move_along_deviation = move_along_deviation + 90;
             break_requests = 0;
         end
         if sensors_data(sensors_idx(7)) > distance
             pioneer_turn(135, turn_orientation, 0, wheel_motors,...
                          compass, velocity, TIME_STEP)
             align_to_obstacle_requests = align_to_obstacle_requests + 1;
-            angle_deviation = angle_deviation + orientation_ratio * 135;
+            move_along_deviation = move_along_deviation + 135;
             break_requests = 0;
         end
         if sensors_data(sensors_idx(8)) > distance
             pioneer_turn(150, turn_orientation, 0, wheel_motors,...
                          compass, velocity, TIME_STEP)
             align_to_obstacle_requests = align_to_obstacle_requests + 1;
-            angle_deviation = angle_deviation + orientation_ratio * 150;
+            move_along_deviation = move_along_deviation + 150;
             break_requests = 0;
         end
         
-        if sensors_data(sensors_idx(2)) > 11/10 * distance &&...
-                wb_robot_get_time > time_turn + 2 && parking_signal == 0
+        if (sensors_data(sensors_idx(2)) > 11/10 * distance ||... 
+                sensors_data(sensors_idx(2)) > 980) &&...
+                wb_robot_get_time > time_turn + turn_delay &&...
+                parking_signal == 0
+            
             pioneer_turn(5, turn_orientation, 0, wheel_motors,...
                          compass, velocity, TIME_STEP)
+            move_along_deviation = move_along_deviation + 5;
             time_turn = wb_robot_get_time;
         end
         if sensors_data(sensors_idx(2)) < 8.2/9 * distance &&...
                 sensors_data(sensors_idx(2)) > 7.8/9 * distance &&...
-                wb_robot_get_time > time_turn + 5 && parking_signal == 0
+                wb_robot_get_time > time_turn + turn_delay &&...
+                parking_signal == 0
+            
             pioneer_turn(5, turn_orientation2, 0, wheel_motors,...
                          compass, velocity, TIME_STEP);
+            move_along_deviation2 = move_along_deviation2 + 5;
             time_turn = wb_robot_get_time;
         end
         
@@ -185,7 +188,8 @@ function [angle_deviation, turn_requests, turn_orientation2, set_radio_requests]
                 parking_sensors_data(parking_sensors_idx(2)) < 750 &&...
                 parking_sensors_data(parking_sensors_idx(3)) > 750 &&...
                 parking_sensors_data(parking_sensors_idx(3)) < 950 &&...
-                parking_signal == 0
+                parking_signal == 0 &&...
+                sensors_data(sensors_idx(2)) > 8/9 * distance
             
             pioneer_turn(30, turn_orientation2, 0, wheel_motors,...
                   compass, velocity, TIME_STEP);
@@ -200,7 +204,8 @@ function [angle_deviation, turn_requests, turn_orientation2, set_radio_requests]
                 parking_sensors_data(parking_sensors_idx(2)) > 300 &&...
                 parking_sensors_data(parking_sensors_idx(2)) < 750 &&...
                 parking_sensors_data(parking_sensors_idx(1)) > 750 &&...
-                parking_sensors_data(parking_sensors_idx(1)) < 950
+                parking_sensors_data(parking_sensors_idx(1)) < 950 &&...
+                sensors_data(sensors_idx(2)) > 8/9 * distance
                
             
             time_count = wb_robot_get_time;
@@ -210,7 +215,7 @@ function [angle_deviation, turn_requests, turn_orientation2, set_radio_requests]
                 end
             end
             pioneer_turn(180, turn_orientation2, 0, wheel_motors,...
-                  compass, velocity, TIME_STEP);
+                  compass, velocity, TIME_STEP);            
             break_requests = 1;
             break_delay = 0;
             break_time_count = wb_robot_get_time;
@@ -249,12 +254,31 @@ function [angle_deviation, turn_requests, turn_orientation2, set_radio_requests]
             set_radio_requests = 1;
             break_requests = 1;
             break_delay = 0;
+            break_time_count = wb_robot_get_time;
             turn_requests = 0;
         end
         
         if parking_signal == 1 && is_parked == 0 &&...
                 wb_robot_get_time > time_parking + 20
             parking_signal = 0;
+        end
+        
+        if move_along_deviation2 >= 160 && break_requests == 0
+            pioneer_turn(90, turn_orientation, 0, wheel_motors,...
+                    compass, velocity, TIME_STEP)
+            break_requests = 1;
+            break_delay = 3;
+            break_time_count = wb_robot_get_time;
+            turn_requests = 0;
+        end
+        
+        if break_requests > 0 && wb_robot_get_time > break_time_count + break_delay
+            for i = 1 : numel(wheel_motors)
+                wb_motor_set_velocity(wheel_motors(i), velocity);
+            end
+            angle_deviation = (move_along_deviation -...
+                move_along_deviation2) * orientation_ratio;
+            break
         end
     end
    

@@ -3,8 +3,8 @@ WorldInfo {
   coordinateSystem "NUE"
 }
 Viewpoint {
-  orientation 0.7914337245206485 0.5848429629718462 0.17773960828607083 5.629383856827868
-  position -3.8166995730790276 11.200494451054176 19.80116596131094
+  orientation 0.9865259546847722 -0.13091833785564633 -0.0981169177380424 4.864062004164153
+  position -6.95481127630432 60.02291428816358 73.5638819878177
 }
 TexturedBackground {
   luminosity 1.3
@@ -17,10 +17,6 @@ Floor {
   appearance Parquetry {
     type "dark strip"
   }
-}
-Ramp30deg {
-  translation 6.43917 0.68 -1.3314
-  rotation 0 -1 0 1.59043
 }
 ConveyorBelt {
   translation 5.21 0.09 -1.57
@@ -372,7 +368,7 @@ ConveyorBelt {
   speed 0.1
 }
 Pioneer3at {
-  translation 1.3333 0.19 9.68456
+  translation -10.2948 0.19 67.5011
   rotation 0 1 0 -3.1415853071795863
   name "Pioneer 3-AT(1)"
   controller "pioneer3at_controll"
@@ -579,6 +575,153 @@ Floor {
     type "grey"
   }
 }
+PicketFenceWithDoor {
+  translation 27.2831 0.08 63.8886
+  rotation 0 1 0 -1.5707953071795862
+}
+Solid {
+  translation 5.55381 0.71 -5.56203
+  children [
+    Shape {
+      appearance VarnishedPine {
+      }
+      geometry DEF box Box {
+        size 0.2 1.3 0.2
+      }
+    }
+  ]
+  name "solid(5)"
+  boundingObject USE box
+}
+Solid {
+  translation 5.55381 0.71 -5.56203
+  children [
+    Shape {
+      appearance VarnishedPine {
+      }
+      geometry DEF box Box {
+        size 0.2 1.3 0.2
+      }
+    }
+  ]
+  name "solid(9)"
+  boundingObject USE box
+}
+Solid {
+  translation 3.24381 0.47 -5.56203
+  children [
+    Shape {
+      appearance VarnishedPine {
+      }
+      geometry DEF box Box {
+        size 0.2 0.8 0.2
+      }
+    }
+  ]
+  name "solid(11)"
+  boundingObject USE box
+}
+Solid {
+  translation 3.24381 0.47 -3.41203
+  children [
+    Shape {
+      appearance VarnishedPine {
+      }
+      geometry DEF box Box {
+        size 0.2 0.8 0.2
+      }
+    }
+  ]
+  name "solid(10)"
+  boundingObject USE box
+}
+Solid {
+  translation 5.55381 0.71 -3.31203
+  children [
+    Shape {
+      appearance VarnishedPine {
+      }
+      geometry DEF box Box {
+        size 0.2 1.3 0.2
+      }
+    }
+  ]
+  name "solid(7)"
+  boundingObject USE box
+}
+Solid {
+  translation 7.35381 0.71 -3.31203
+  children [
+    Shape {
+      appearance VarnishedPine {
+      }
+      geometry DEF box Box {
+        size 0.2 1.3 0.2
+      }
+    }
+  ]
+  name "solid(8)"
+  boundingObject USE box
+}
+Solid {
+  translation 7.36381 0.71 -5.56203
+  children [
+    Shape {
+      appearance VarnishedPine {
+      }
+      geometry DEF box Box {
+        size 0.2 1.3 0.2
+      }
+    }
+  ]
+  name "solid(6)"
+  boundingObject USE box
+}
+Solid {
+  translation 6.65058 0.711117 2.4215
+  rotation 0.12943007026410958 0.9831055337015951 0.12942707026248096 1.58784
+  children [
+    Shape {
+      appearance OldPlywood {
+      }
+      geometry DEF slope_wall Box {
+        size 5.3 0.1 3
+      }
+    }
+  ]
+  name "solid(4)"
+  boundingObject USE slope_wall
+}
+Solid {
+  translation 6.6699 1.38975 -2.98122
+  rotation 3.78665e-07 -1 1.87444e-06 1.57734
+  children [
+    Shape {
+      appearance OldPlywood {
+      }
+      geometry DEF slope_wall Box {
+        size 5.7 0.1 3
+      }
+    }
+  ]
+  name "solid(1)"
+  boundingObject USE slope_wall
+}
+Solid {
+  translation 2.63731 0.701458 -4.3179
+  rotation 1.1616699997481834e-05 1.7279899996254214e-05 0.9999999997832286 0.2618009999999996
+  children [
+    Shape {
+      appearance OldPlywood {
+      }
+      geometry DEF slope_wall Box {
+        size 5.3 0.1 3
+      }
+    }
+  ]
+  name "solid(2)"
+  boundingObject USE slope_wall
+}
 GasStation {
   translation -31.24 0 -1.33212e-05
   rotation 0 1 0 3.14159
@@ -588,19 +731,57 @@ TheThreeTowers {
   rotation 0 1 0 -1.5707953071795862
 }
 Floor {
-  translation 1.5 0.08 64.25
+  translation 21 0.08 70.25
   name "floor(1)"
-  size 93 81.5
+  size 12.1 69.5
   tileSize 10 10
   appearance Grass {
     colorOverride 0.32 0.5 0
+  }
+}
+Floor {
+  translation 17.6 0.078 32
+  rotation 0 1 0 -0.7854003061004253
+  name "floor(3)"
+  size 18 8.5
+  tileSize 10 10
+  appearance Grass {
+    colorOverride 0.32 0.5 0
+  }
+}
+Floor {
+  translation -15 0.08 64
+  name "floor(2)"
+  size 60 82
+  tileSize 10 10
+  appearance Grass {
+    colorOverride 0.32 0.5 0
+  }
+}
+CircleArena {
+  translation -10 0.11 60
+  radius 8
+  floorAppearance SandyGround {
+    colorOverride 0.7 0.7 0.5
+  }
+  floorTileSize 20 20
+  wallThickness 0
+  wallHeight 0.001
+}
+Floor {
+  translation -10 0.1 64
+  name "floor(4)"
+  size 5 82
+  tileSize 20 20
+  appearance SandyGround {
+    colorOverride 0.7 0.7 0.5
   }
 }
 ControlledStreetLight {
   translation -40.5 0 22.53
 }
 ControlledStreetLight {
-  translation -10.45 0 22.63
+  translation -5.85352 -6.75015e-13 22.4944
   name "street light(1)"
 }
 ControlledStreetLight {
@@ -630,7 +811,7 @@ BigSassafras {
   translation 0 0 29.26
 }
 BigSassafras {
-  translation 17.01 0 26.52
+  translation 15.7833 -9.9476e-14 48.3349
   name "sassafras tree(4)"
 }
 BigSassafras {
@@ -650,15 +831,15 @@ BigSassafras {
   name "sassafras tree(12)"
 }
 BigSassafras {
-  translation 31.04 0 51.3
+  translation 11.9168 -2.87059e-12 54.8844
   name "sassafras tree(13)"
 }
 BigSassafras {
-  translation 28.65 0 58.37
+  translation 5.04465 -1.86162e-12 66.2515
   name "sassafras tree(14)"
 }
 BigSassafras {
-  translation 24.61 0 48.82
+  translation 24.1459 -1.42109e-14 51.4465
   name "sassafras tree(15)"
 }
 BigSassafras {
@@ -666,19 +847,19 @@ BigSassafras {
   name "sassafras tree(16)"
 }
 BigSassafras {
-  translation 33.82 0 37.55
+  translation 12.159 -1.42109e-14 36.226
   name "sassafras tree(17)"
 }
 BigSassafras {
-  translation 42.93 0 29.19
+  translation 3.24375 1.27898e-13 47.7304
   name "sassafras tree(18)"
 }
 BigSassafras {
-  translation 38.33 0 44.7
+  translation 24.1742 1.42109e-14 40.3517
   name "sassafras tree(19)"
 }
 BigSassafras {
-  translation 25.92 0 28.4
+  translation 14.6861 -3.55271e-14 45.2615
   name "sassafras tree(6)"
 }
 BigSassafras {
@@ -690,16 +871,23 @@ BigSassafras {
   name "sassafras tree(8)"
 }
 BigSassafras {
-  translation -22.27 0 37.23
+  translation -20.1434 2.13163e-13 38.3565
   name "sassafras tree(9)"
 }
 BigSassafras {
-  translation -8.31 0 40.19
+  translation -5.32502 0 38.3236
   name "sassafras tree(10)"
 }
 BigSassafras {
-  translation -7.39 0 29.44
+  translation -3.15444 -8.88178e-16 43.0867
   name "sassafras tree(1)"
+}
+Fountain {
+  translation -9.84459 0.11 59.8309
+  rotation 0 -1 0 -5.307179586466759e-06
+  height 5
+  radius 5
+  subdivision 32
 }
 BigSassafras {
   translation 0 0 42.66
@@ -710,7 +898,7 @@ BigSassafras {
   name "sassafras tree(20)"
 }
 BigSassafras {
-  translation -8.08 0 57.29
+  translation -2.8219 1.42109e-14 52.2654
   name "sassafras tree(21)"
 }
 BigSassafras {
@@ -794,23 +982,23 @@ BigSassafras {
   name "sassafras tree(32)"
 }
 BigSassafras {
-  translation 37.25 0 64.63
+  translation 11.0055 -7.10543e-14 49.9422
   name "sassafras tree(26)"
 }
 BigSassafras {
-  translation 43.73 0 72.54
+  translation 18.9267 1.90425e-12 68.5603
   name "sassafras tree(43)"
 }
 BigSassafras {
-  translation 29.29 0 72.54
+  translation 13.7527 1.42109e-14 77.2366
   name "sassafras tree(44)"
 }
 BigSassafras {
-  translation 29.29 0 91.06
+  translation 23.9946 0 81.2182
   name "sassafras tree(45)"
 }
 BigSassafras {
-  translation 39.28 0 84.53
+  translation 25.3497 1.13687e-13 88.4492
   name "sassafras tree(46)"
 }
 BigSassafras {
@@ -822,11 +1010,11 @@ BigSassafras {
   name "sassafras tree(48)"
 }
 BigSassafras {
-  translation 32.42 0 101.34
+  translation 22.549 -5.68434e-14 62.4261
   name "sassafras tree(49)"
 }
 BigSassafras {
-  translation 43.7 0 93.94
+  translation 25.0893 0 96.2449
   name "sassafras tree(50)"
 }
 BigSassafras {
@@ -834,9 +1022,21 @@ BigSassafras {
   name "sassafras tree(3)"
 }
 PicketFence {
-  translation 48 0 23.67
+  translation 27.1695 0.07 35.5506
   rotation 0 1 0 -1.5707953071795862
-  numberOfSegments 48
+  numberOfSegments 14
+}
+PicketFence {
+  translation 15.2013 0.07 23.6528
+  rotation 0 -1 0 0.785397
+  name "picket fence(4)"
+  numberOfSegments 10
+}
+PicketFence {
+  translation 27.2728 0.07 63.8722
+  rotation 0 1 0 -1.5707953071795862
+  name "picket fence(3)"
+  numberOfSegments 24
 }
 PicketFence {
   translation -44.99 0 23.51
