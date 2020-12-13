@@ -63,6 +63,8 @@ ts0 = wb_robot_get_device('ts0');
 wb_touch_sensor_enable(ts0,TIME_STEP);
 ts2 = wb_robot_get_device('ts2');
 wb_touch_sensor_enable(ts2,TIME_STEP);
+
+emitter = wb_robot_get_device('emitter_ipr');
 % main loop:
 
 while wb_robot_step(TIME_STEP) ~= -1
@@ -96,6 +98,7 @@ if value_BPS < 0.05 && value_UPS < -1.75
 end
 if value_BPS < 0.05 && value_UPS < 0 && value_LGPS < -0.65
   start_position(motors)
+  send_message(emitter)
 end
 
   drawnow;
