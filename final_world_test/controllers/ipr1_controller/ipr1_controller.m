@@ -67,18 +67,16 @@ wb_touch_sensor_enable(ts2,TIME_STEP);
 
 while wb_robot_step(TIME_STEP) ~= -1
 
-gps_signal_source
-
-value_dsG = wb_distance_sensor_get_value(dsG)
+value_dsG = wb_distance_sensor_get_value(dsG);
 value_dsCB1 = wb_distance_sensor_get_value(dsCB1)
 value_dsCAR = wb_distance_sensor_get_value(dsCAR)
 
-value_BPS = wb_position_sensor_get_value(BPS)
-value_UPS = wb_position_sensor_get_value(UPS)
-value_LGPS = wb_position_sensor_get_value(LGPS)
+value_BPS = wb_position_sensor_get_value(BPS);
+value_UPS = wb_position_sensor_get_value(UPS);
+value_LGPS = wb_position_sensor_get_value(LGPS);
 
-value_ts0 = wb_touch_sensor_get_value(ts0)
-value_ts2 = wb_touch_sensor_get_value(ts2)
+value_ts0 = wb_touch_sensor_get_value(ts0);
+value_ts2 = wb_touch_sensor_get_value(ts2);
 
 if value_dsCB1 < 500 && value_BPS < 0.05 && value_dsCAR < 999
   init_grab_IPR1(motors)

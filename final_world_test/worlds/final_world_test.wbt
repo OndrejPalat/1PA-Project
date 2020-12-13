@@ -3,8 +3,8 @@ WorldInfo {
   coordinateSystem "NUE"
 }
 Viewpoint {
-  orientation -0.5428176869372625 0.8205877054359234 0.1788428819816046 0.8290541884895914
-  position 1.2659163336540644 3.775553558134343 7.521914589637189
+  orientation 0.1564916208731619 0.9502831399133805 0.26920684722506066 4.198602093925436
+  position -56.58502241562949 78.81597720963502 -15.556622893562258
 }
 TexturedBackground {
   luminosity 1.3
@@ -17,6 +17,25 @@ Floor {
   appearance Parquetry {
     type "dark strip"
   }
+}
+Robot {
+  translation 69.61 0 30.83
+  children [
+    Emitter {
+      name "emitter_robot"
+      channel 1
+    }
+    Receiver {
+      name "receiver_robot"
+      channel 1
+    }
+    GPS {
+      name "gps_robot"
+      accuracy 2
+    }
+  ]
+  name "robot(1)"
+  controller "gps_signal_robot"
 }
 ConveyorBelt {
   translation 5.21 0.1 -1.57
@@ -287,15 +306,11 @@ IprHd6ms90 {
   sensorsSlot [
     Receiver {
       name "receiver_ipr"
-      channel 2
+      channel 1
     }
     Emitter {
       name "emitter_ipr"
-      channel 2
-    }
-    GPS {
-      name "gps_ipr"
-      accuracy 2
+      channel 1
     }
     DistanceSensor {
       translation 0.18 -0.13 0
@@ -578,6 +593,24 @@ Floor {
 PicketFenceWithDoor {
   translation 27.2831 0.08 63.8886
   rotation 0 1 0 -1.5707953071795862
+}
+Robot {
+  translation -4.33 0.38 2.75
+  children [
+    GPS {
+      name "gps_ipr"
+      accuracy 2
+    }
+    Emitter {
+      name "emitter_ipr"
+      channel 2
+    }
+    Receiver {
+      name "receiver_ipr"
+      channel 2
+    }
+  ]
+  controller "gps_signal_source"
 }
 Solid {
   translation 5.55381 0.71 -5.56203

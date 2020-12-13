@@ -1,16 +1,24 @@
+% MATLAB controller for Webots
+% File:          gps_signal_robot.m
+% Date:
+% Description:
+% Author:
+% Modifications:
 
+% uncomment the next two lines if you want to use
+% MATLAB's desktop to interact with the controller:
 %desktop;
 %keyboard;
 
 TIME_STEP = 64;
 
-emitter = wb_robot_get_device('emitter_ipr');
-receiver = wb_robot_get_device('receiver_ipr');
-gps = wb_robot_get_device('gps_ipr');
+emitter = wb_robot_get_device('emitter_robot');
+receiver = wb_robot_get_device('receiver_robot');
+gps = wb_robot_get_device('gps_robot');
 wb_gps_enable(gps, TIME_STEP);
 wb_receiver_enable(receiver, TIME_STEP);
 
-precision = 100;
+precision = 50;
 gps_data = zeros(precision, 3);
 gps_position = zeros(1, 3);
 message = '';
