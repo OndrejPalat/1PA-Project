@@ -1,4 +1,5 @@
 function [message] = send_message(emitter)
-message = wb_emitter_send(emitter, 'loading complete')
+message = double('loading_complete')
+wb_emitter_send(emitter, message)
 end
 
