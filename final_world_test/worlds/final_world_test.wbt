@@ -3,8 +3,8 @@ WorldInfo {
   coordinateSystem "NUE"
 }
 Viewpoint {
-  orientation 0.7253817568391302 0.6377364469091199 0.2590627937946862 5.31338055189155
-  position -11.660144644816354 41.371591565181326 44.05679075150497
+  orientation -0.13014962929301754 0.9687118813981678 0.2113252583883717 2.124614663531772
+  position 52.865670962340346 15.22139480924192 20.96315408221017
 }
 TexturedBackground {
   luminosity 1.3
@@ -18,16 +18,65 @@ Floor {
     type "dark strip"
   }
 }
+Bench {
+  translation -14.4253 0.08 32.5177
+  rotation 0 1 0 1.5708
+}
+Bench {
+  translation -14.5253 0.08 45.5477
+  rotation 0 1 0 1.5708
+  name "bench(3)"
+}
+Bench {
+  translation -6.14803 0.08 32.7984
+  rotation 0 1 0 -1.5707953071795862
+  name "bench(1)"
+}
+Bench {
+  translation -6.14803 0.08 45.5684
+  rotation 0 1 0 -1.5707953071795862
+  name "bench(2)"
+}
+Bench {
+  translation -6.14803 0.08 72.9284
+  rotation 0 1 0 -1.5707953071795862
+  name "bench(4)"
+}
+Bench {
+  translation -6.14803 0.08 85.6884
+  rotation 0 1 0 -1.5707953071795862
+  name "bench(5)"
+}
+Bench {
+  translation -6.14803 0.08 99.7284
+  rotation 0 1 0 -1.5707953071795862
+  name "bench(6)"
+}
+Bench {
+  translation -13.928 0.08 99.7284
+  rotation 0 1 0 1.5708
+  name "bench(7)"
+}
+Bench {
+  translation -13.928 0.08 85.7284
+  rotation 0 1 0 1.5708
+  name "bench(8)"
+}
+Bench {
+  translation -13.928 0.08 72.9284
+  rotation 0 1 0 1.5708
+  name "bench(9)"
+}
 Robot {
   translation 69.61 0 30.83
   children [
     Emitter {
       name "emitter_robot"
-      channel 1
+      channel 3
     }
     Receiver {
       name "receiver_robot"
-      channel 1
+      channel 3
     }
     GPS {
       name "gps_robot"
@@ -167,9 +216,9 @@ Wall {
   size 0.2 2.4 8.7
 }
 Wall {
-  translation 5.06927 -4.10364e-20 -2.22966
+  translation 5.06927 -4.10364e-20 -2.30966
   name "wall(8)"
-  size 0.2 2.4 0.95
+  size 0.2 2.4 1.2
 }
 Wall {
   translation 5.06927 0.6 -1.56966
@@ -383,7 +432,7 @@ ConveyorBelt {
   speed 0.1
 }
 Pioneer3at {
-  translation -10.2948 0.19 67.5011
+  translation -4.90541 0.19 74.8423
   rotation 0 1 0 -3.1415853071795863
   name "Pioneer 3-AT(1)"
   controller "pioneer3at_controll"
@@ -571,6 +620,95 @@ Floor {
     type "grey"
   }
 }
+FireHydrant {
+  translation -13.6221 -0.03 22.5763
+}
+Floor {
+  translation 48 0.075 71
+  name "pavement"
+  size 42 68
+  appearance MarbleTiles {
+    colorOverride 0.75 0.75 0.8
+    textureTransform TextureTransform {
+      scale 0.12 0.08
+    }
+  }
+}
+Floor {
+  translation 45.9 0.074 34.8
+  name "pavement(1)"
+  size 42 5
+  appearance MarbleTiles {
+    colorOverride 0.75 0.75 0.8
+    textureTransform TextureTransform {
+      scale 0.12 0.08
+    }
+  }
+}
+ClothRecyclingContainer {
+  translation 96.6193 0.08 71.9663
+  rotation 0 -1 0 -1.5642453071795863
+}
+ClothRecyclingContainer {
+  translation 96.4947 0.08 74.0004
+  rotation 0 -1 0 -1.5642453071795863
+  name "cloth recycling container(1)"
+}
+PublicBin {
+  translation -6.09569 0.08 35.2258
+}
+PublicBin {
+  translation -14.2895 0.08 34.952
+  name "public bin(2)"
+}
+PublicBin {
+  translation -14.4557 0.08 47.7258
+  name "public bin(3)"
+}
+PublicBin {
+  translation -6.09569 0.08 48.4658
+  name "public bin(1)"
+}
+PublicBin {
+  translation -6.19277 0.08 70.7356
+  name "public bin(4)"
+}
+PublicBin {
+  translation -13.7999 0.08 70.6838
+  name "public bin(5)"
+}
+PublicBin {
+  translation -13.7999 0.08 83.2038
+  name "public bin(6)"
+}
+PublicBin {
+  translation -13.7999 0.08 97.0738
+  name "public bin(9)"
+}
+PublicBin {
+  translation -6.1299 0.08 83.2038
+  name "public bin(7)"
+}
+PublicBin {
+  translation -6.1299 0.08 97.0338
+  name "public bin(8)"
+}
+NewsStand {
+  translation 55.8443 0.07 33.2249
+  rotation 0 1 0 2.49364
+}
+DrinkingFountain {
+  translation -14.2257 0.06 41.6013
+  rotation 0 -1 0 1.58389
+}
+Atm {
+  translation 61.5144 0.05 9.51795
+  name "ATM(1)"
+}
+Atm {
+  translation 63.2951 0.05 9.49508
+  name "ATM(2)"
+}
 PicketFenceWithDoor {
   translation 27.2831 0.08 63.8886
   rotation 0 1 0 -1.5707953071795862
@@ -741,7 +879,7 @@ GasStation {
   rotation 0 1 0 3.14159
 }
 TheThreeTowers {
-  translation 96.89 0 39.59
+  translation 96.89 0.05 39.59
   rotation 0 1 0 -1.5707953071795862
 }
 Floor {
@@ -772,6 +910,54 @@ Floor {
     colorOverride 0.32 0.5 0
   }
 }
+AdvertisingBoard {
+  translation 94.5915 24.47 39.545
+  rotation 0 1 0 -1.5707953071795862
+  displayBackLight TRUE
+}
+Sassafras {
+  translation -25.2836 0.06 66.39
+  rotation 0 1 0 -0.785395307179586
+  name "sassafras tree(53)"
+}
+Sassafras {
+  translation -1.53745 0.06 78.9806
+  rotation 0 1 0 -0.785395307179586
+  name "sassafras tree(57)"
+}
+Sassafras {
+  translation 7.43973 0.06 87.2535
+  rotation 0 1 0 0.261802
+  name "sassafras tree(60)"
+}
+Sassafras {
+  translation 6.72802 0.06 64.2799
+  rotation 0 1 0 -0.785395307179586
+  name "sassafras tree(14)"
+}
+Sassafras {
+  translation -31.994 0.06 43.2949
+  rotation 0 1 0 -0.785395307179586
+  name "sassafras tree(56)"
+}
+Sassafras {
+  translation -21.4325 0.06 51.1791
+  rotation 0 1 0 -0.785395307179586
+  name "sassafras tree(54)"
+}
+Sassafras {
+  translation -2.48309 0.06 33.715
+  name "sassafras tree(55)"
+}
+Sassafras {
+  translation 4.9886 0.06 48.8655
+  rotation 0 1 0 -2.6179953071795863
+  name "sassafras tree(18)"
+}
+PhoneBooth {
+  translation 20.2797 0.08 26.0295
+  rotation 0 1 0 -1.5707953071795862
+}
 CircleArena {
   translation -10 0.11 60
   radius 8
@@ -790,6 +976,30 @@ Floor {
   appearance SandyGround {
     colorOverride 0.7 0.7 0.5
   }
+}
+TrashContainer {
+  translation 12.58 0.07 -13.6819
+  rotation 0 -1 0 3.12851
+}
+TrashContainer {
+  translation 14.8324 0.07 -13.7306
+  rotation 0 -1 0 3.12851
+  name "trash container(3)"
+}
+TrashContainer {
+  translation 16.8721 -0.5 -11.6619
+  rotation 0.4099080512085863 0.6449710805743072 -0.6449710805743072 2.36356
+  name "trash container(4)"
+}
+TrashContainer {
+  translation 98.8651 0.13 69.5468
+  rotation 0 1 0 -2.9059753071795864
+  name "trash container(1)"
+}
+TrashContainer {
+  translation 102.09 0.13 69.3126
+  rotation 0 -1 0 3.12196
+  name "trash container(2)"
 }
 ControlledStreetLight {
   translation -40.5 0 22.53
@@ -822,7 +1032,7 @@ ControlledStreetLight {
   name "street light(6)"
 }
 BigSassafras {
-  translation 0 0 29.26
+  translation 0 -0.01 29.26
 }
 BigSassafras {
   translation 15.7833 -9.9476e-14 48.3349
@@ -841,16 +1051,8 @@ BigSassafras {
   name "sassafras tree(51)"
 }
 BigSassafras {
-  translation 20 0 62.32
-  name "sassafras tree(12)"
-}
-BigSassafras {
   translation 11.9168 -2.87059e-12 54.8844
   name "sassafras tree(13)"
-}
-BigSassafras {
-  translation 5.04465 -1.86162e-12 66.2515
-  name "sassafras tree(14)"
 }
 BigSassafras {
   translation 24.1459 -1.42109e-14 51.4465
@@ -863,10 +1065,6 @@ BigSassafras {
 BigSassafras {
   translation 12.159 -1.42109e-14 36.226
   name "sassafras tree(17)"
-}
-BigSassafras {
-  translation 3.24375 1.27898e-13 47.7304
-  name "sassafras tree(18)"
 }
 BigSassafras {
   translation 24.1742 1.42109e-14 40.3517
@@ -889,7 +1087,8 @@ BigSassafras {
   name "sassafras tree(9)"
 }
 BigSassafras {
-  translation -5.32502 0 38.3236
+  translation 0.481933 2.13163e-14 35.8452
+  rotation 0 1 0 -0.785395307179586
   name "sassafras tree(10)"
 }
 BigSassafras {
@@ -920,7 +1119,7 @@ BigSassafras {
   name "sassafras tree(22)"
 }
 BigSassafras {
-  translation -6.61 0 70.35
+  translation -6.6413 0 69.284
   name "sassafras tree(23)"
 }
 BigSassafras {
@@ -930,6 +1129,21 @@ BigSassafras {
 BigSassafras {
   translation 1.76 0 82.87
   name "sassafras tree(25)"
+}
+Sassafras {
+  translation 15.9832 0.06 60.5431
+  rotation 0 1 0 -0.785395307179586
+  name "sassafras tree(12)"
+}
+Sassafras {
+  translation 21.8818 0.06 75.8697
+  rotation 0 1 0 -0.785395307179586
+  name "sassafras tree(58)"
+}
+Sassafras {
+  translation 18.1481 0.06 94.4221
+  rotation 0 1 0 -0.785395307179586
+  name "sassafras tree(59)"
 }
 BigSassafras {
   translation 17.88 0 82.87
@@ -984,7 +1198,7 @@ BigSassafras {
   name "sassafras tree(41)"
 }
 BigSassafras {
-  translation -8.18 0 96.54
+  translation -5.48113 6.39488e-14 101.625
   name "sassafras tree(42)"
 }
 BigSassafras {
@@ -1004,7 +1218,7 @@ BigSassafras {
   name "sassafras tree(43)"
 }
 BigSassafras {
-  translation 13.7527 1.42109e-14 77.2366
+  translation -24.963 1.42109e-14 85.3658
   name "sassafras tree(44)"
 }
 BigSassafras {
@@ -1034,6 +1248,10 @@ BigSassafras {
 BigSassafras {
   translation 7.78 0 36.84
   name "sassafras tree(3)"
+}
+BigSassafras {
+  translation 8.53133 0 30.0688
+  name "sassafras tree(52)"
 }
 PicketFence {
   translation 27.1695 0.07 35.5506
@@ -1074,6 +1292,9 @@ CurvedRoadSegment {
   ]
   curvatureRadius 30
   totalAngle 1.6
+  roadBoundingObject TRUE
+  rightBorderBoundingObject TRUE
+  leftBorderBoundingObject TRUE
 }
 CurvedRoadSegment {
   translation 105.163 0.08 48.9096
@@ -1108,6 +1329,9 @@ StraightRoadSegment {
   startingRoadBorderWidth 2
   endingRoadBorderWidth 2
   length 40
+  roadBoundingObject TRUE
+  rightBorderBoundingObject TRUE
+  leftBorderBoundingObject TRUE
 }
 Warehouse {
   translation 24.42 0 1.44

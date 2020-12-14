@@ -223,7 +223,7 @@ function [angle_deviation, turn_requests, turn_orientation2, set_radio_requests]
         end
         
         if sensors_data(sensors_idx(3)) > 1000 && parking_signal == 1
-            pioneer_turn(30, turn_orientation, 0, wheel_motors,...
+            pioneer_turn(25, turn_orientation, 0, wheel_motors,...
                          compass, velocity, TIME_STEP)
         end
         
