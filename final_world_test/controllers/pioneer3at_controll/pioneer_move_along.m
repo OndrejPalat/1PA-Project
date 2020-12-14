@@ -239,7 +239,8 @@ function [angle_deviation, turn_requests, turn_orientation2, set_radio_requests]
             end            
         end
         
-        if parking_signal == 1 && strcmp(message, 'loading_complete')
+        if parking_signal == 1 && strcmp(message, 'loading_complete') &&...
+                is_parked == 1
             pioneer_turn(90, turn_orientation, 0, wheel_motors,...
                          compass, velocity, TIME_STEP)
             for i = 1 : numel(wheel_motors)
@@ -250,7 +251,8 @@ function [angle_deviation, turn_requests, turn_orientation2, set_radio_requests]
                 if wb_robot_get_time > time_count + 3
                     break
                 end
-            end            
+            end
+            is_parked = 0;
             set_radio_requests = 1;
             break_requests = 1;
             break_delay = 0;

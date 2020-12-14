@@ -1,6 +1,6 @@
 
-%desktop;
-%keyboard;
+desktop;
+keyboard;
 
 TIME_STEP = 32;
 
@@ -76,8 +76,9 @@ while wb_robot_step(TIME_STEP) ~= -1
   end
   
   if set_radio_requests == 1
-    wb_emitter_set_channel(emitter, channel + 1);
-    wb_receiver_set_channel(receiver, channel + 1);
+    channel = channel + 1;
+    wb_emitter_set_channel(emitter, channel);
+    wb_receiver_set_channel(receiver, channel);
     ask_gps_requests = 1;
     set_radio_requests = 0;
     velocity = 0;
