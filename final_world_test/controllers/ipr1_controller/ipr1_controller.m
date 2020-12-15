@@ -7,11 +7,11 @@
 
 % uncomment the next two lines if you want to use
 % MATLAB's desktop to interact with the controller:
-%desktop;
-%keyboard;
+desktop;
+keyboard;
 
 TIME_STEP = 64;
-
+i = 0;
 %motors
 motors = [];
 base = wb_robot_get_device('base');
@@ -98,7 +98,10 @@ if value_BPS < 0.05 && value_UPS < -1.75
 end
 if value_BPS < 0.05 && value_UPS < 0 && value_LGPS < -0.65
   start_position(motors)
-  send_message(emitter)
+  while i < 1
+      send_message(emitter)
+      i = i + 1;
+  end
 end
 
   drawnow;

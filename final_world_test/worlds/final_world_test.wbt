@@ -4,7 +4,7 @@ WorldInfo {
 }
 Viewpoint {
   orientation 0.9944366470382373 -0.10527351583390356 -0.003638940960936394 5.7506442455375115
-  position 43.94886602049063 21.841351117563356 95.41728870422662
+  position 2.1114433032938322 12.202419860654853 25.882581929848417
 }
 TexturedBackground {
   luminosity 1.3
@@ -533,10 +533,10 @@ Pioneer3at {
       aperture 0
     }
     Emitter {
-      channel 3
+      channel 2
     }
     Receiver {
-      channel 3
+      channel 2
     }
     GPS {
       accuracy 2

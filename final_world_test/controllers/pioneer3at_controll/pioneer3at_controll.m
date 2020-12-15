@@ -1,6 +1,6 @@
 
-desktop;
-keyboard;
+%desktop;
+%keyboard;
 
 TIME_STEP = 32;
 
