@@ -17,6 +17,8 @@ function direction_vector = pioneer_get_direction(gps_destination, precision,...
     gps_position(2) = 0;
     gps_destination(2) = 0;
     direction_vector = gps_destination - gps_position;
-                         
+    for i = 1 : numel(wheel_motors)
+       wb_motor_set_velocity(wheel_motors(i), velocity);
+    end
 end
 

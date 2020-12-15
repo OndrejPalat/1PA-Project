@@ -3,8 +3,8 @@ WorldInfo {
   coordinateSystem "NUE"
 }
 Viewpoint {
-  orientation 0.9944366470382373 -0.10527351583390356 -0.003638940960936394 5.7506442455375115
-  position 2.1114433032938322 12.202419860654853 25.882581929848417
+  orientation 0.28343794554114016 -0.9465105085184883 -0.15421020812997435 5.162836060374356
+  position 82.66178294943559 20.814176351625946 105.92668944114405
 }
 TexturedBackground {
   luminosity 1.3
@@ -115,8 +115,89 @@ SolidBox {
   }
 }
 SolidBox {
-  translation -4.26 0.24 4.99433
+  translation 45.3239 0.43 104.844
+  rotation 0 -1 0 1.5708
   name "box(2)"
+  size 0.01 0.5 0.05
+  appearance PaintedWood {
+    colorOverride 0.5 0 0
+  }
+}
+SolidBox {
+  translation 45.4839 0.43 104.844
+  rotation 0 -1 0 1.5708
+  name "box(18)"
+  size 0.01 0.5 0.05
+  appearance PaintedWood {
+    colorOverride 1 0 0
+  }
+}
+SolidBox {
+  translation 45.1739 0.43 104.844
+  rotation 0 -1 0 1.5708
+  name "box(17)"
+  size 0.01 0.5 0.05
+  appearance PaintedWood {
+    colorOverride 0 0 0
+  }
+}
+SolidBox {
+  translation 48.4839 0.43 104.844
+  rotation 0 -1 0 1.5708
+  name "box(12)"
+  size 0.01 0.5 0.05
+  appearance PaintedWood {
+    colorOverride 1 0 0
+  }
+}
+SolidBox {
+  translation 48.1839 0.43 104.844
+  rotation 0 -1 0 1.5708
+  name "box(11)"
+  size 0.01 0.5 0.05
+  appearance PaintedWood {
+    colorOverride 1 0 0
+  }
+}
+SolidBox {
+  translation 48.3339 0.43 104.844
+  rotation 0 -1 0 1.5708
+  name "box(13)"
+  size 0.01 0.5 0.05
+  appearance PaintedWood {
+    colorOverride 0 0 0
+  }
+}
+SolidBox {
+  translation 51.3439 0.43 104.844
+  rotation 0 -1 0 1.5708
+  name "box(14)"
+  size 0.01 0.5 0.05
+  appearance PaintedWood {
+    colorOverride 0.5 0 0
+  }
+}
+SolidBox {
+  translation 51.4939 0.43 104.844
+  rotation 0 -1 0 1.5708
+  name "box(16)"
+  size 0.01 0.5 0.05
+  appearance PaintedWood {
+    colorOverride 0 0 0
+  }
+}
+SolidBox {
+  translation 51.1939 0.43 104.844
+  rotation 0 -1 0 1.5708
+  name "box(15)"
+  size 0.01 0.5 0.05
+  appearance PaintedWood {
+    colorOverride 1 0 0
+  }
+}
+SolidBox {
+  translation -4.26 0.24 4.99433
+  name "box(10)"
   size 0.01 0.25 0.05
   appearance PaintedWood {
     colorOverride 1 0 0
@@ -307,6 +388,36 @@ Wall {
   size 2.4 2.4 0.2
 }
 Wall {
+  translation 47.8168 4.26326e-14 104.94
+  name "wall(17)"
+  size 41 1.5 0.2
+  appearance CorrugatedPvc {
+    textureTransform TextureTransform {
+      scale 50 50
+    }
+  }
+}
+Wall {
+  translation 58.9568 4.26326e-14 71.328
+  name "wall(18)"
+  size 20 1.5 0.2
+  appearance CorrugatedPvc {
+    textureTransform TextureTransform {
+      scale 50 50
+    }
+  }
+}
+Wall {
+  translation 36.1568 4.26326e-14 71.328
+  name "wall(19)"
+  size 18 1.5 0.2
+  appearance CorrugatedPvc {
+    textureTransform TextureTransform {
+      scale 50 50
+    }
+  }
+}
+Wall {
   translation 4.25 0 -2.8
   name "wall(4)"
   size 1.5 2.4 0.2
@@ -413,7 +524,7 @@ ConveyorBelt {
   speed 0.1
 }
 Pioneer3at {
-  translation 3.77872 0.19 9.93397
+  translation 54.1849 0.19 103.552
   rotation 0 1 0 -3.1415853071795863
   name "Pioneer 3-AT(1)"
   controller "pioneer3at_controll"
@@ -601,6 +712,13 @@ Floor {
     type "grey"
   }
 }
+Mailbox {
+  translation 85.6995 0.06 59.5644
+}
+Mailbox {
+  translation 85.6995 0.06 60.2644
+  name "mailbox(1)"
+}
 WorkBarrier {
   translation 68.71 0 104.16
   rotation 0 1 0 1.5708
@@ -701,38 +819,56 @@ WorkBarrier {
   name "work barrier(8)"
 }
 Floor {
-  translation 48 0.075 88.2
+  translation 48 0.095 88.2
   name "parking lot"
   size 42 33.5
   appearance Asphalt {
   }
 }
+GlassRecyclingContainer {
+  translation 28.3824 6.75015e-14 101.36
+}
+GlassRecyclingContainer {
+  translation 98.3121 -4.08562e-13 86.0139
+  name "glass recycling container(1)"
+}
 ExitSign {
-  translation 56.17 0 71.48
+  translation 56.1702 1.77636e-15 71.563
   rotation 0 1 0 3.14159
 }
 ExitSign {
-  translation 39.41 0 71.48
+  translation 39.4138 1.77636e-15 71.6542
   rotation 0 1 0 3.14159
   name "exit sign(1)"
 }
 StopSign {
-  translation 69.5 0.08 79.2408
+  translation 68.8527 0.08 79.6412
   rotation 0 1 0 1.5708
 }
 FireHydrant {
   translation -13.6221 -0.03 22.5763
 }
 Floor {
-  translation 48 0.075 53.9
+  translation 50 0.075 53.9
   name "pavement"
-  size 42 35
+  size 46 35
   appearance MarbleTiles {
     colorOverride 0.75 0.75 0.8
     textureTransform TextureTransform {
       scale 0.12 0.08
     }
   }
+}
+FastFoodRestaurant {
+  translation 32.5056 0.07 65.726
+  rotation 0 1 0 2.85387e-06
+}
+PublicToilet {
+  translation 34.9555 0.05 50.4124
+}
+Gnome {
+  translation 14.1287 0.06 87.2565
+  rotation 0 -1 0 1.5708
 }
 ToyotaPrius {
   translation 48.43 0.4 98.69
@@ -754,9 +890,31 @@ BmwX5 {
   rotation 0 1 0 -1.5707953071795862
 }
 Floor {
-  translation 45.9 0.074 34.5
+  translation 46.42 0.073 34.93
   name "pavement(1)"
-  size 42 5
+  size 43 4.2
+  appearance MarbleTiles {
+    colorOverride 0.75 0.75 0.8
+    textureTransform TextureTransform {
+      scale 0.12 0.08
+    }
+  }
+}
+Floor {
+  translation 41.48 0.075 29.87
+  name "pavement(2)"
+  size 47 6
+  appearance MarbleTiles {
+    colorOverride 0.75 0.75 0.8
+    textureTransform TextureTransform {
+      scale 0.12 0.08
+    }
+  }
+}
+Floor {
+  translation 38.01 0.077 25.16
+  name "pavement(3)"
+  size 47 5
   appearance MarbleTiles {
     colorOverride 0.75 0.75 0.8
     textureTransform TextureTransform {
@@ -765,16 +923,16 @@ Floor {
   }
 }
 ClothRecyclingContainer {
-  translation 96.6193 0.08 71.9663
+  translation 102.08 0.08 83.2661
   rotation 0 -1 0 -1.5642453071795863
 }
 ClothRecyclingContainer {
-  translation 96.4947 0.08 74.0004
+  translation 101.951 0.08 85.2283
   rotation 0 -1 0 -1.5642453071795863
   name "cloth recycling container(1)"
 }
 ClothRecyclingContainer {
-  translation 28.1674 0.08 103.602
+  translation 28.3899 0.08 103.646
   rotation 0 1 0 -0.0065553071795863005
   name "cloth recycling container(2)"
 }
@@ -834,7 +992,7 @@ Atm {
   name "ATM(2)"
 }
 PicketFenceWithDoor {
-  translation 27.2831 0.08 63.8886
+  translation 27.1631 0.08 51.9886
   rotation 0 1 0 -1.5707953071795862
 }
 Robot {
@@ -856,7 +1014,7 @@ Robot {
   controller "gps_signal_source"
 }
 Robot {
-  translation 62.53 0.38 42.14
+  translation 48.41 0.38 104.55
   children [
     GPS {
       name "gps_ipr"
@@ -1026,7 +1184,7 @@ TheThreeTowers {
   rotation 0 1 0 -1.5707953071795862
 }
 Floor {
-  translation 21 0.08 70.25
+  translation 21 0.085 70.25
   name "floor(1)"
   size 12.1 69.5
   tileSize 10 10
@@ -1034,8 +1192,29 @@ Floor {
     colorOverride 0.32 0.5 0
   }
 }
+WorkTrashContainer {
+  translation 37.0032 0.06 -12.2543
+}
+WorkTrashContainer {
+  translation 34.3244 0.06 -12.2494
+  rotation 0 -1 0 0.0523598
+  name "work trash container(1)"
+}
+WorkTrashContainer {
+  translation 31.599 0.06 -12.1523
+  rotation 0 1 0 0.0327249
+  name "work trash container(2)"
+}
+SnackStand {
+  translation 62.6523 1.42108e-14 40.8092
+  rotation 0 1 0 2.14676
+}
+SmallKiosk {
+  translation 66.546 0.1 48.917
+  rotation -3.9732e-08 1 -3.64876e-08 1.65588
+}
 Floor {
-  translation 17.6 0.078 32
+  translation 17.6 0.081 32
   rotation 0 1 0 -0.7854003061004253
   name "floor(3)"
   size 18 8.5
@@ -1045,7 +1224,7 @@ Floor {
   }
 }
 Floor {
-  translation -15 0.08 64
+  translation -15 0.085 64
   name "floor(2)"
   size 60 82
   tileSize 10 10
@@ -1098,8 +1277,13 @@ Sassafras {
   name "sassafras tree(18)"
 }
 PhoneBooth {
+  translation 58.5804 0.08 10.1209
+  rotation 0 1 0 1.5708
+}
+PhoneBooth {
   translation 20.2797 0.08 26.0295
   rotation 0 1 0 -1.5707953071795862
+  name "phone booth(1)"
 }
 CircleArena {
   translation -10 0.11 60
@@ -1120,39 +1304,20 @@ Floor {
     colorOverride 0.7 0.7 0.5
   }
 }
-TrashContainer {
-  translation 12.58 0.07 -13.6819
-  rotation 0 -1 0 3.12851
+Floor {
+  translation 12 0.09 78
+  rotation 0 1 0 0.9162996938995747
+  name "floor(5)"
+  size 5 42.5
+  tileSize 20 20
+  appearance SandyGround {
+    colorOverride 0.7 0.7 0.5
+  }
 }
 TrashContainer {
-  translation 14.8324 0.07 -13.7306
-  rotation 0 -1 0 3.12851
-  name "trash container(3)"
-}
-TrashContainer {
-  translation 16.8721 -0.5 -11.6619
+  translation 16.5445 -0.5 -11.4686
   rotation 0.4099080512085863 0.6449710805743072 -0.6449710805743072 2.36356
   name "trash container(4)"
-}
-TrashContainer {
-  translation 98.8651 0.13 69.5468
-  rotation 0 1 0 -2.9059753071795864
-  name "trash container(1)"
-}
-TrashContainer {
-  translation 102.09 0.13 69.3126
-  rotation 0 -1 0 3.12196
-  name "trash container(2)"
-}
-TrashContainer {
-  translation 29.2874 0.13 101.598
-  rotation 0 -1 0 -1.590435307179586
-  name "trash container(5)"
-}
-TrashContainer {
-  translation 29.4894 0.13 98.5743
-  rotation 0 1 0 2.37583
-  name "trash container(6)"
 }
 ControlledStreetLight {
   translation -40.5 0 22.53
@@ -1185,7 +1350,7 @@ BigSassafras {
   name "sassafras tree(11)"
 }
 BigSassafras {
-  translation 6.35 0 75.52
+  translation -16.988 4.9738e-14 81.2679
   name "sassafras tree(51)"
 }
 BigSassafras {
@@ -1261,7 +1426,7 @@ BigSassafras {
   name "sassafras tree(23)"
 }
 BigSassafras {
-  translation -17.68 0 64.63
+  translation -19.8307 -1.06581e-14 61.2071
   name "sassafras tree(24)"
 }
 BigSassafras {
@@ -1269,7 +1434,7 @@ BigSassafras {
   name "sassafras tree(25)"
 }
 Sassafras {
-  translation 15.9832 0.06 60.5431
+  translation 14.0685 0.06 61.3522
   rotation 0 1 0 -0.785395307179586
   name "sassafras tree(12)"
 }
@@ -1284,7 +1449,7 @@ Sassafras {
   name "sassafras tree(59)"
 }
 BigSassafras {
-  translation 17.88 0 82.87
+  translation 4.46123 -3.55271e-15 79.348
   name "sassafras tree(27)"
 }
 BigSassafras {
@@ -1352,7 +1517,7 @@ BigSassafras {
   name "sassafras tree(26)"
 }
 BigSassafras {
-  translation 18.9267 1.90425e-12 68.5603
+  translation 17.0226 4.25615e-12 67.2529
   name "sassafras tree(43)"
 }
 BigSassafras {
@@ -1364,7 +1529,7 @@ BigSassafras {
   name "sassafras tree(45)"
 }
 BigSassafras {
-  translation 25.3497 1.13687e-13 88.4492
+  translation -20.3767 2.16715e-13 66.9981
   name "sassafras tree(46)"
 }
 BigSassafras {
@@ -1394,19 +1559,47 @@ BigSassafras {
 PicketFence {
   translation 27.1695 0.07 35.5506
   rotation 0 1 0 -1.5707953071795862
-  numberOfSegments 14
+  numberOfSegments 7
 }
 PicketFence {
-  translation 15.2013 0.07 23.6528
-  rotation 0 -1 0 0.785397
+  translation -1.78499 0.07 23.541
+  rotation 0 1 0 1.16114e-06
   name "picket fence(4)"
   numberOfSegments 10
 }
 PicketFence {
-  translation 27.2728 0.07 63.8722
+  translation -44.945 0.07 23.541
+  rotation 0 1 0 1.16114e-06
+  name "picket fence(9)"
+  numberOfSegments 15
+}
+PicketFence {
+  translation 15.109 0.07 23.5605
+  rotation 0 -1 0 0.785397
+  name "picket fence(8)"
+  numberOfSegments 10
+}
+PicketFence {
+  translation 27.1528 0.07 51.9222
   rotation 0 1 0 -1.5707953071795862
   name "picket fence(3)"
-  numberOfSegments 24
+  numberOfSegments 20
+}
+PicketFence {
+  translation 27.2728 0.07 92.8522
+  rotation 0 1 0 -1.5707953071795862
+  name "picket fence(7)"
+  numberOfSegments 7
+}
+PicketFence {
+  translation 27.1736 0.07 85.9688
+  rotation 0 1 0 -2.8797953071795863
+  name "picket fence(5)"
+}
+PicketFence {
+  translation 27.3266 0.07 92.8643
+  rotation 0 1 0 2.35619
+  name "picket fence(6)"
 }
 PicketFence {
   translation -44.99 0 23.51
@@ -1415,33 +1608,27 @@ PicketFence {
   numberOfSegments 48
 }
 PicketFence {
-  translation 48 0 104.93
+  translation 27.21 0 104.93
   rotation 0 1 0 3.14159
   name "picket fence(1)"
-  numberOfSegments 55
-}
-PicketFence {
-  translation 68.44 0 104.93
-  rotation 0 1 0 3.14159
-  name "picket fence(5)"
-  numberOfSegments 12
+  numberOfSegments 43
 }
 CurvedRoadSegment {
-  translation 45.1 0.08 49
+  translation 45.1068 0.085 50.2273
   rotation 0 1 0 1.57735
   name "road(1)"
   roadBorderHeight 0.05
   roadBorderWidth [
     2
   ]
-  curvatureRadius 31
+  curvatureRadius 32.2
   totalAngle 1.6
   roadBoundingObject TRUE
   rightBorderBoundingObject TRUE
   leftBorderBoundingObject TRUE
 }
 StraightRoadSegment {
-  translation -45 0.08 18
+  translation -45 0.085 18
   rotation 0 1 0 1.5707963267948968
   roadBorderHeight 0.05
   startingRoadBorderWidth 2
@@ -1451,32 +1638,68 @@ StraightRoadSegment {
   rightBorderBoundingObject TRUE
   leftBorderBoundingObject TRUE
 }
+StraightRoadSegment {
+  translation 77.2615 0.085 83.3343
+  rotation 0 1 0 4.6928012867022945e-06
+  name "road(2)"
+  roadBorderHeight 0.05
+  startingRoadBorderWidth 2
+  endingRoadBorderWidth 2
+  length 22
+  roadBoundingObject TRUE
+  rightBorderBoundingObject TRUE
+  leftBorderBoundingObject TRUE
+}
+StraightRoadSegment {
+  translation 85.5711 0.085 75.6997
+  rotation 0 1 0 1.5708
+  name "road(4)"
+  roadBorderHeight 0.05
+  startingRoadBorderWidth 2
+  endingRoadBorderWidth 2
+  length 19.5
+  roadBoundingObject TRUE
+  rightBorderBoundingObject TRUE
+  leftBorderBoundingObject TRUE
+}
+StraightRoadSegment {
+  translation 77.2614 0.085 50.7943
+  rotation 0 1 0 4.6928012867022945e-06
+  name "road(3)"
+  roadBorderHeight 0.05
+  startingRoadBorderWidth 2
+  endingRoadBorderWidth 2
+  length 16.5
+  roadBoundingObject TRUE
+  rightBorderBoundingObject TRUE
+  leftBorderBoundingObject TRUE
+}
 Warehouse {
   translation 24.42 0 1.44
 }
 BigGlassTower {
-  translation 93.32 0 92.6
+  translation 93.32 0.12 92.6
 }
 ResidentialBuilding {
   translation 70.54 0 0
 }
 ParkingLines {
-  translation 64.47 0.08 75.81
+  translation 64.47 0.1 75.81
   rotation 0 1 0 -1.5707953071795862
   numberOfCarParks 10
 }
 ParkingLines {
-  translation 35.36 0.08 75.81
+  translation 35.36 0.1 75.81
   rotation 0 1 0 -1.5707953071795862
   numberOfCarParks 10
 }
 ParkingLines {
-  translation 47.63 0.08 75.81
+  translation 47.63 0.1 75.81
   rotation 0 1 0 -1.5707953071795862
   numberOfCarParks 10
 }
 ParkingLines {
-  translation 52.22 0.08 75.81
+  translation 52.22 0.1 75.81
   rotation 0 1 0 -1.5707953071795862
   numberOfCarParks 10
 }
@@ -1491,20 +1714,140 @@ TeslaModel3 {
   name "vehicle(4)"
 }
 RoadIntersection {
-  translation 76.5 0.08 74.9
+  translation 77.3 0.085 75.7
   rotation 0 1 0 0.7854003061004253
-  startRoadsLength [
-    4
-  ]
+  startRoadBorderHeight 0.05
+  startRoadBorderWidth 2
+  startRoadBorderboundingObject TRUE
+  boundingObject TRUE
+}
+GenericTrafficLight {
+  translation 72.8038 0.13 79.6314
+  rotation 0 1 0 1.5708
+  state "green"
+}
+GenericTrafficLight {
+  translation 81.4638 0.12 79.6514
+  rotation 0 1 0 -3.1415853071795863
+  name "generic traffic light(1)"
+  state "green"
+}
+GenericTrafficLight {
+  translation 81.5638 0.14 71.4014
+  rotation 0 -1 0 1.57079
+  name "generic traffic light(2)"
+  state "green"
+}
+GenericTrafficLight {
+  translation 73.3238 0.13 71.5014
+  rotation 0 1 0 6.32203e-06
+  name "generic traffic light(3)"
+  state "green"
 }
 TrafficCone {
-  translation 62.1 0 71.39
+  translation 47.0436 0.08 71.807
+  physics Physics {
+    density 1
+  }
 }
 TrafficCone {
-  translation 47.58 0 71.39
+  translation 48.645 0.09 71.7983
   name "traffic cone(1)"
+  physics Physics {
+    density 1
+  }
 }
 TrafficCone {
-  translation 32.65 0 71.39
+  translation 45.3665 0.08 71.7924
   name "traffic cone(2)"
+  physics Physics {
+    density 1
+  }
+}
+PedestrianCrossing {
+  translation 77.2169 3.12639e-13 84.3924
+  rotation -9.58977e-09 1 1.5023e-14 3.14159
+  size 7 5
+}
+PedestrianCrossing {
+  translation 71.0954 3.60865e-13 75.6354
+  rotation -1.91795e-08 1 -1.91795e-08 -1.5708053071795867
+  name "pedestrian crossing(4)"
+  size 7 3
+}
+PedestrianCrossing {
+  translation 77.2169 1.29712e-12 66.6424
+  rotation -9.58977e-09 1 1.5023e-14 3.14159
+  name "pedestrian crossing(3)"
+  size 7 5
+}
+TableWithUmbrella {
+  translation 11.0216 0.06 88.6327
+}
+TableWithUmbrella {
+  translation 4.60964 0.06 90.4818
+  name "table with umbrella(1)"
+}
+TableWithUmbrella {
+  translation 5.98435 0.06 82.9387
+  rotation 0 1 0 2.35619
+  name "table with umbrella(2)"
+}
+PedestrianCrossing {
+  translation 87.1181 3.12639e-13 75.7826
+  rotation 0 1 0 1.5708
+  name "pedestrian crossing(2)"
+  size 7 5
+}
+PedestrianCrossing {
+  translation -9.84 0 18.16
+  rotation 0 1 0 1.5708
+  name "pedestrian crossing(1)"
+  size 7 5
+}
+TrashBin {
+  translation 14.0406 0.05 -12.4684
+  rotation 0 1 0 3.14159
+  binColor 0.07 0.28 0
+}
+TrashBin {
+  translation 13.1086 0.05 -12.6272
+  rotation 0 1 0 -3.004155307179586
+  name "trash bin(2)"
+  binColor 0.07 0.28 0
+}
+TrashBin {
+  translation 28.4298 0.06 99.538
+  rotation 0 -1 0 -1.5904253071795864
+  name "trash bin(3)"
+  binColor 0.07 0.28 0
+}
+TrashBin {
+  translation 28.5739 0.06 98.4954
+  rotation 0 1 0 1.45953
+  name "trash bin(4)"
+  binColor 0.07 0.28 0
+}
+TrashBin {
+  translation 15.0341 0.05 -12.5486
+  rotation 0 1 0 3.14159
+  name "trash bin(1)"
+  binColor 0.07 0.28 0
+}
+SwingCouch {
+  translation 16.1434 0.06 89.7413
+  rotation 0 1 0 3.14159
+}
+ElectricalCabinet {
+  translation 32.7516 0.01 8.16712
+}
+BusStop {
+  translation 76.2704 2.84217e-14 27.2357
+  rotation 0 -1 0 0.935931
+}
+Church {
+  translation 62.5944 0.01 67.7223
+}
+GuardShelter {
+  translation 70.307 0.13 82.1726
 }

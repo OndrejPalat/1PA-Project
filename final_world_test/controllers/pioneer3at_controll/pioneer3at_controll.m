@@ -16,14 +16,14 @@ for i = 1 : numel(parking_sensors)
   wb_distance_sensor_enable(parking_sensors(i), TIME_STEP);
 end
 
-velocity_init = 3; % change velocity here, might cause some problems
+velocity_init = 3; % change velocity here, might create malfunctions
 velocity = 0;
 sensors_data = zeros(numel(sensors), 1);
 message = '';
 turn_requests = 0;
 n_of_alignments = 0;
 direction_vector = [0 0 0];
-reaction_distance = 900;
+reaction_distance = 920;
 time_set_direction = 0;
 time_ask_gps = 0;
 time_turn = 0;
@@ -42,6 +42,7 @@ cross_product = [0 0 0];
 turn_orientation = [];
 turn_orientation_ovrd = [];
 set_radio_requests = 0;
+channel = 2;
 
 if ask_gps_requests == 0
   velocity = velocity_init;
@@ -61,11 +62,12 @@ end
 compass = wb_robot_get_device('compass');
 wb_compass_enable(compass, TIME_STEP);
 emitter = wb_robot_get_device('emitter');
+wb_emitter_set_channel(emitter, channel);
 receiver = wb_robot_get_device('receiver');
 wb_receiver_enable(receiver, TIME_STEP);
+wb_receiver_set_channel(receiver, channel);
 gps = wb_robot_get_device('gps');
 wb_gps_enable(gps, TIME_STEP);
-channel = wb_receiver_get_channel(receiver);
 
 
 while wb_robot_step(TIME_STEP) ~= -1
@@ -169,8 +171,9 @@ while wb_robot_step(TIME_STEP) ~= -1
   if sensors_data(1) > reaction_distance / 1.2 &&...
       sensors_data(16) > reaction_distance / 1.2 &&...
       wb_robot_get_time > time_turn + 5
-    [angle_deviation, turn_requests, turn_orientation, set_radio_requests] = pioneer_move_along(reaction_distance,...
-        "left", velocity, angle_deviation, sensors, parking_sensors, wheel_motors, compass, gps,...
+    [angle_deviation, turn_requests, turn_orientation, set_radio_requests] =...
+        pioneer_move_along(reaction_distance, "left", velocity, angle_deviation,...
+        gps_destination, sensors, parking_sensors , wheel_motors, compass, gps,...
         receiver, TIME_STEP);
     if turn_requests > 0
         direction_vector = pioneer_get_direction(gps_destination, 10,...
@@ -182,8 +185,9 @@ while wb_robot_step(TIME_STEP) ~= -1
   if sensors_data(8) > reaction_distance / 1.2 &&...
       sensors_data(9) > reaction_distance / 1.2 &&...
       wb_robot_get_time > time_turn + 5
-    [angle_deviation, turn_requests, turn_orientation, set_radio_requests] = pioneer_move_along(reaction_distance,...
-        "right", velocity, angle_deviation, sensors, parking_sensors , wheel_motors, compass, gps,...
+    [angle_deviation, turn_requests, turn_orientation, set_radio_requests] =...
+        pioneer_move_along(reaction_distance, "right", velocity, angle_deviation,...
+        gps_destination, sensors, parking_sensors , wheel_motors, compass, gps,...
         receiver, TIME_STEP);
     if turn_requests > 0
         direction_vector = pioneer_get_direction(gps_destination, 10,...

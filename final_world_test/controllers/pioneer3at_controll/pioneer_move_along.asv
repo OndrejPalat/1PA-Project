@@ -192,22 +192,12 @@ function [angle_deviation, turn_requests, turn_orientation2, set_radio_requests]
                 parking_signal == 0 &&...
                 sensors_data(sensors_idx(2)) > 8/9 * distance
             
-            direction_vector = pioneer_get_direction(gps_destination, 10,...                
-                    velocity, wheel_motors, gps, compass, TIME_STEP);
-            time_count = wb_robot_get_time;
-            while wb_robot_step(TIME_STEP) ~= -1
-                if wb_robot_get_time > time_count + parking_delay
-                    break
-                end
-            end
-            if norm(direction_vector) < 20
-                pioneer_turn(30, turn_orientation2, 0, wheel_motors,...
-                      compass, velocity, TIME_STEP);
-                parking_signal = 1;
-                align_to_obstacle_requests = 0;
-                break_requests = 0;
-                time_parking = wb_robot_get_time;
-            end
+            pioneer_turn(30, turn_orientation2, 0, wheel_motors,...
+                  compass, velocity, TIME_STEP);
+            parking_signal = 1;
+            align_to_obstacle_requests = 0;
+            break_requests = 0;
+            time_parking = wb_robot_get_time;
         end
         
         if parking_sensors_data(parking_sensors_idx(3)) > 30 &&...
@@ -220,16 +210,16 @@ function [angle_deviation, turn_requests, turn_orientation2, set_radio_requests]
                
             
             direction_vector = pioneer_get_direction(gps_destination, 10,...
-                    velocity, wheel_motors, gps, compass, TIME_STEP);
-            time_count = wb_robot_get_time;
-            while wb_robot_step(TIME_STEP) ~= -1
-                if wb_robot_get_time > time_count + parking_delay
-                    break
-                end
-            end
+                            velocity, wheel_motors, gps, compass, TIME_STEP);
             if norm(direction_vector) < 20
+                time_count = wb_robot_get_time;
+                while wb_robot_step(TIME_STEP) ~= -1
+                    if wb_robot_get_time > time_count + parking_delay
+                        break
+                    end
+                end
                 pioneer_turn(180, turn_orientation2, 0, wheel_motors,...
-                        compass, velocity, TIME_STEP);            
+                      compass, velocity, TIME_STEP);            
                 break_requests = 1;
                 break_delay = 0;
                 break_time_count = wb_robot_get_time;
