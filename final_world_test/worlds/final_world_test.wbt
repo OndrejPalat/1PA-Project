@@ -3,8 +3,8 @@ WorldInfo {
   coordinateSystem "NUE"
 }
 Viewpoint {
-  orientation 0.999882786714348 -0.007813949407525738 0.013166435622673707 5.4262142936532145
-  position 0.14879945398115024 18.91590534641682 19.377123909843846
+  orientation 0.9944366470382373 -0.10527351583390356 -0.003638940960936394 5.7506442455375115
+  position 43.94886602049063 21.841351117563356 95.41728870422662
 }
 TexturedBackground {
   luminosity 1.3
@@ -533,10 +533,10 @@ Pioneer3at {
       aperture 0
     }
     Emitter {
-      channel 2
+      channel 3
     }
     Receiver {
-      channel 2
+      channel 3
     }
     GPS {
       accuracy 2
@@ -601,13 +601,132 @@ Floor {
     type "grey"
   }
 }
+WorkBarrier {
+  translation 68.71 0 104.16
+  rotation 0 1 0 1.5708
+}
+WorkBarrier {
+  translation 68.71 0 91.91
+  rotation 0 1 0 1.5708
+  name "work barrier(1)"
+}
+WorkBarrier {
+  translation 68.71 0 90.68
+  rotation 0 1 0 1.5708
+  name "work barrier(11)"
+}
+WorkBarrier {
+  translation 68.71 0 89.45
+  rotation 0 1 0 1.5708
+  name "work barrier(12)"
+}
+WorkBarrier {
+  translation 68.71 0 88.23
+  rotation 0 1 0 1.5708
+  name "work barrier(13)"
+}
+WorkBarrier {
+  translation 68.71 0 86.99
+  rotation 0 1 0 1.5708
+  name "work barrier(14)"
+}
+WorkBarrier {
+  translation 68.71 0 85.75
+  rotation 0 1 0 1.5708
+  name "work barrier(15)"
+}
+WorkBarrier {
+  translation 68.71 0 84.51
+  rotation 0 1 0 1.5708
+  name "work barrier(16)"
+}
+WorkBarrier {
+  translation 68.71 0 83.27
+  rotation 0 1 0 1.5708
+  name "work barrier(17)"
+}
+WorkBarrier {
+  translation 68.71 0 82.03
+  rotation 0 1 0 1.5708
+  name "work barrier(18)"
+}
+WorkBarrier {
+  translation 68.71 0 80.79
+  rotation 0 1 0 1.5708
+  name "work barrier(19)"
+}
+WorkBarrier {
+  translation 68.71 0 95.61
+  rotation 0 1 0 1.5708
+  name "work barrier(2)"
+}
+WorkBarrier {
+  translation 68.71 0 94.39
+  rotation 0 1 0 1.5708
+  name "work barrier(9)"
+}
+WorkBarrier {
+  translation 68.71 0 93.15
+  rotation 0 1 0 1.5708
+  name "work barrier(10)"
+}
+WorkBarrier {
+  translation 68.71 0 102.89
+  rotation 0 1 0 1.5708
+  name "work barrier(3)"
+}
+WorkBarrier {
+  translation 68.71 0 101.68
+  rotation 0 1 0 1.5708
+  name "work barrier(4)"
+}
+WorkBarrier {
+  translation 68.71 0 100.43
+  rotation 0 1 0 1.5708
+  name "work barrier(5)"
+}
+WorkBarrier {
+  translation 68.71 0 99.22
+  rotation 0 1 0 1.5708
+  name "work barrier(6)"
+}
+WorkBarrier {
+  translation 68.71 0 97.98
+  rotation 0 1 0 1.5708
+  name "work barrier(7)"
+}
+WorkBarrier {
+  translation 68.71 0 96.83
+  rotation 0 1 0 1.5708
+  name "work barrier(8)"
+}
+Floor {
+  translation 48 0.075 88.2
+  name "parking lot"
+  size 42 33.5
+  appearance Asphalt {
+  }
+}
+ExitSign {
+  translation 56.17 0 71.48
+  rotation 0 1 0 3.14159
+}
+ExitSign {
+  translation 39.41 0 71.48
+  rotation 0 1 0 3.14159
+  name "exit sign(1)"
+}
+StopSign {
+  translation 69.5 0.08 79.2408
+  rotation 0 1 0 1.5708
+}
 FireHydrant {
   translation -13.6221 -0.03 22.5763
 }
 Floor {
-  translation 48 0.075 71
+  translation 48 0.075 53.9
   name "pavement"
-  size 42 68
+  size 42 35
   appearance MarbleTiles {
     colorOverride 0.75 0.75 0.8
     textureTransform TextureTransform {
@@ -615,8 +734,27 @@ Floor {
     }
   }
 }
+ToyotaPrius {
+  translation 48.43 0.4 98.69
+  rotation 0 1 0 1.5708
+  name "vehicle(5)"
+}
+RangeRoverSportSVR {
+  translation 48.64 0.4 77.03
+  rotation 0 1 0 1.5708
+  name "vehicle(2)"
+}
+RangeRoverSportSVR {
+  translation 31.77 0.4 96.23
+  rotation 0 1 0 1.5708
+  name "vehicle(3)"
+}
+BmwX5 {
+  translation 46.56 0.4 86.63
+  rotation 0 1 0 -1.5707953071795862
+}
 Floor {
-  translation 45.9 0.074 34.8
+  translation 45.9 0.074 34.5
   name "pavement(1)"
   size 42 5
   appearance MarbleTiles {
@@ -634,6 +772,11 @@ ClothRecyclingContainer {
   translation 96.4947 0.08 74.0004
   rotation 0 -1 0 -1.5642453071795863
   name "cloth recycling container(1)"
+}
+ClothRecyclingContainer {
+  translation 28.1674 0.08 103.602
+  rotation 0 1 0 -0.0065553071795863005
+  name "cloth recycling container(2)"
 }
 PublicBin {
   translation -6.09569 0.08 35.2258
@@ -1001,6 +1144,16 @@ TrashContainer {
   rotation 0 -1 0 3.12196
   name "trash container(2)"
 }
+TrashContainer {
+  translation 29.2874 0.13 101.598
+  rotation 0 -1 0 -1.590435307179586
+  name "trash container(5)"
+}
+TrashContainer {
+  translation 29.4894 0.13 98.5743
+  rotation 0 1 0 2.37583
+  name "trash container(6)"
+}
 ControlledStreetLight {
   translation -40.5 0 22.53
 }
@@ -1015,21 +1168,6 @@ ControlledStreetLight {
 ControlledStreetLight {
   translation 48.41 0 22.83
   name "street light(3)"
-}
-ControlledStreetLight {
-  translation 70.61 0 46.1
-  rotation 0 1 0 -1.5707953071795862
-  name "street light(4)"
-}
-ControlledStreetLight {
-  translation 81.95 0 75.95
-  rotation 0 1 0 -0.785395307179586
-  name "street light(5)"
-}
-ControlledStreetLight {
-  translation 95.2191 0 95.4781
-  rotation 0 1 0 -1.047195307179586
-  name "street light(6)"
 }
 BigSassafras {
   translation 0 -0.01 29.26
@@ -1282,30 +1420,22 @@ PicketFence {
   name "picket fence(1)"
   numberOfSegments 55
 }
+PicketFence {
+  translation 68.44 0 104.93
+  rotation 0 1 0 3.14159
+  name "picket fence(5)"
+  numberOfSegments 12
+}
 CurvedRoadSegment {
-  translation 45.1497 0.08 48.0165
+  translation 45.1 0.08 49
   rotation 0 1 0 1.57735
   name "road(1)"
   roadBorderHeight 0.05
   roadBorderWidth [
     2
   ]
-  curvatureRadius 30
+  curvatureRadius 31
   totalAngle 1.6
-  roadBoundingObject TRUE
-  rightBorderBoundingObject TRUE
-  leftBorderBoundingObject TRUE
-}
-CurvedRoadSegment {
-  translation 105.163 0.08 48.9096
-  rotation 0 -1 0 2.55255
-  name "road(2)"
-  roadBorderHeight 0.05
-  roadBorderWidth [
-    2
-  ]
-  curvatureRadius 30
-  totalAngle 0.6
   roadBoundingObject TRUE
   rightBorderBoundingObject TRUE
   leftBorderBoundingObject TRUE
@@ -1321,24 +1451,60 @@ StraightRoadSegment {
   rightBorderBoundingObject TRUE
   leftBorderBoundingObject TRUE
 }
-StraightRoadSegment {
-  translation 80.1965 0.08 65.4599
-  rotation 0 1 0 0.602139
-  name "road(3)"
-  roadBorderHeight 0.05
-  startingRoadBorderWidth 2
-  endingRoadBorderWidth 2
-  length 40
-  roadBoundingObject TRUE
-  rightBorderBoundingObject TRUE
-  leftBorderBoundingObject TRUE
-}
 Warehouse {
   translation 24.42 0 1.44
 }
 BigGlassTower {
-  translation 77.04 0 95.79
+  translation 93.32 0 92.6
 }
 ResidentialBuilding {
   translation 70.54 0 0
+}
+ParkingLines {
+  translation 64.47 0.08 75.81
+  rotation 0 1 0 -1.5707953071795862
+  numberOfCarParks 10
+}
+ParkingLines {
+  translation 35.36 0.08 75.81
+  rotation 0 1 0 -1.5707953071795862
+  numberOfCarParks 10
+}
+ParkingLines {
+  translation 47.63 0.08 75.81
+  rotation 0 1 0 -1.5707953071795862
+  numberOfCarParks 10
+}
+ParkingLines {
+  translation 52.22 0.08 75.81
+  rotation 0 1 0 -1.5707953071795862
+  numberOfCarParks 10
+}
+TeslaModel3 {
+  translation 31.61 0.4 76.98
+  rotation 0 1 0 1.5708
+  name "vehicle(1)"
+}
+TeslaModel3 {
+  translation 63.53 0.4 93.75
+  rotation 0 1 0 -1.5707953071795862
+  name "vehicle(4)"
+}
+RoadIntersection {
+  translation 76.5 0.08 74.9
+  rotation 0 1 0 0.7854003061004253
+  startRoadsLength [
+    4
+  ]
+}
+TrafficCone {
+  translation 62.1 0 71.39
+}
+TrafficCone {
+  translation 47.58 0 71.39
+  name "traffic cone(1)"
+}
+TrafficCone {
+  translation 32.65 0 71.39
+  name "traffic cone(2)"
 }
