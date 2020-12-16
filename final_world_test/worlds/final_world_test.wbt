@@ -3,8 +3,8 @@ WorldInfo {
   coordinateSystem "NUE"
 }
 Viewpoint {
-  orientation 0.8837609317037047 0.4347698744871005 0.1730369088740052 5.517260293908726
-  position -9.807508388186143 27.402722575800702 35.37238199184281
+  orientation 0.27589459551751205 -0.9421123310417524 -0.1905427192608105 4.9543613089472345
+  position -1.2958239216303555 1.6888788707975226 2.668213798836079
 }
 TexturedBackground {
   luminosity 1.3
@@ -120,7 +120,7 @@ SolidBox {
   name "box(2)"
   size 0.01 0.5 0.05
   appearance PaintedWood {
-    colorOverride 0.5 0 0
+    colorOverride 0.4 0 0
   }
 }
 SolidBox {
@@ -174,7 +174,7 @@ SolidBox {
   name "box(14)"
   size 0.01 0.5 0.05
   appearance PaintedWood {
-    colorOverride 0.5 0 0
+    colorOverride 0.4 0 0
   }
 }
 SolidBox {
@@ -464,7 +464,7 @@ IprHd6ms90 {
   ]
 }
 Table {
-  translation -4.46 0.09 2.66
+  translation -4.457 0.09 2.66
   size 0.4 0.29 8.8
   feetSize 0.1 4.4
   trayAppearance VarnishedPine {
@@ -529,6 +529,72 @@ Pioneer3at {
   name "Pioneer 3-AT(1)"
   controller "pioneer3at_controll"
   extensionSlot [
+    Solid {
+      translation 0 0.19 0.18
+      children [
+        Shape {
+          appearance GlossyPaint {
+            baseColor 0 0 0
+          }
+          geometry DEF box Box {
+            size 0.3 0.06 0.01
+          }
+        }
+      ]
+      boundingObject USE box
+      physics Physics {
+      }
+    }
+    Solid {
+      translation 0 0.19 -0.18
+      children [
+        Shape {
+          appearance GlossyPaint {
+            baseColor 0 0 0
+          }
+          geometry DEF box Box {
+            size 0.3 0.06 0.01
+          }
+        }
+      ]
+      boundingObject USE box
+      physics Physics {
+      }
+    }
+    Solid {
+      translation 0.15 0.19 -5.19723e-15
+      rotation 0 1 0 -1.5707953071795862
+      children [
+        Shape {
+          appearance GlossyPaint {
+            baseColor 0 0 0
+          }
+          geometry DEF box Box {
+            size 0.36 0.06 0.01
+          }
+        }
+      ]
+      boundingObject USE box
+      physics Physics {
+      }
+    }
+    Solid {
+      translation -0.14 0.19 2.95686e-07
+      rotation 0 1 0 -1.5707953071795862
+      children [
+        Shape {
+          appearance GlossyPaint {
+            baseColor 0 0 0
+          }
+          geometry DEF box Box {
+            size 0.36 0.06 0.01
+          }
+        }
+      ]
+      boundingObject USE box
+      physics Physics {
+      }
+    }
     DistanceSensor {
       translation -0.15 0.13 0.010001
       rotation 0 1 0 3.14159
