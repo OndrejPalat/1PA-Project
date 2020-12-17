@@ -64,23 +64,23 @@ wb_touch_sensor_enable(ts2,TIME_STEP);
 % main loop:
 while wb_robot_step(TIME_STEP) ~= -1
 
-value_BPS = wb_position_sensor_get_value(BPS)
+value_BPS = wb_position_sensor_get_value(BPS);
 if value_BPS < 0.1
   prepare4grab(motors)
 end
 
-value_dsCAR2 = wb_distance_sensor_get_value(dsCAR2)
+value_dsCAR2 = wb_distance_sensor_get_value(dsCAR2);
 if value_BPS > 4.59 && value_dsCAR2 < 999
   init_grab_IPR3(motors)
   open_gripper(motors)
 end
 
-value_dsG = wb_distance_sensor_get_value(dsG)
+value_dsG = wb_distance_sensor_get_value(dsG);
 if value_dsG > 35 && value_BPS > 4.2
 close_gripper(motors)
 end
 
-value_ts0 = wb_touch_sensor_get_value(ts0)
+value_ts0 = wb_touch_sensor_get_value(ts0);
 if value_ts0 > 210
 second_position(motors)
 end
@@ -88,14 +88,14 @@ if value_ts0 > 200 && value_BPS < 1.8
 second_position2(motors)
 end
 
-value_WPS = wb_position_sensor_get_value(WPS)
-value_UPS = wb_position_sensor_get_value(UPS)
+value_WPS = wb_position_sensor_get_value(WPS);
+value_UPS = wb_position_sensor_get_value(UPS);
 if value_ts0 > 200 && value_BPS > 1.65 && value_WPS < -3.1 && value_BPS < 1.75
 open_gripper(motors)
 start_position(motors)
 end
 
-value_LGPS = wb_position_sensor_get_value(LGPS)
+value_LGPS = wb_position_sensor_get_value(LGPS);
 if value_BPS < 1.71 && value_LGPS < -0.4 && value_UPS < -0.1
 start_position2(motors)
 end

@@ -65,20 +65,20 @@ wb_touch_sensor_enable(ts2,TIME_STEP);
 
 while wb_robot_step(TIME_STEP) ~= -1
 
-value_dsCB2 = wb_distance_sensor_get_value(dsCB2)
+value_dsCB2 = wb_distance_sensor_get_value(dsCB2);
 if value_dsCB2 < 999
   init_grab_IPR2(motors)
   open_gripper(motors)
 end
 
-value_BPS = wb_position_sensor_get_value(BPS)
-value_dsG = wb_distance_sensor_get_value(dsG)
+value_BPS = wb_position_sensor_get_value(BPS);
+value_dsG = wb_distance_sensor_get_value(dsG);
 if value_dsG > 40 && value_BPS < 1.5
   close_gripper(motors)
 end
 
-value_ts0 = wb_touch_sensor_get_value(ts0)
-value_LGPS = wb_position_sensor_get_value(LGPS)
+value_ts0 = wb_touch_sensor_get_value(ts0);
+value_LGPS = wb_position_sensor_get_value(LGPS);
 if value_ts0 > 200 && value_BPS < 1.49 && LGPS > 0.01
   second_position2(motors)
 end

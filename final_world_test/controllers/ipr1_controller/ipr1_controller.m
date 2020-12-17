@@ -70,8 +70,8 @@ emitter = wb_robot_get_device('emitter_ipr');
 while wb_robot_step(TIME_STEP) ~= -1
 
 value_dsG = wb_distance_sensor_get_value(dsG);
-value_dsCB1 = wb_distance_sensor_get_value(dsCB1)
-value_dsCAR = wb_distance_sensor_get_value(dsCAR)
+value_dsCB1 = wb_distance_sensor_get_value(dsCB1);
+value_dsCAR = wb_distance_sensor_get_value(dsCAR);
 
 value_BPS = wb_position_sensor_get_value(BPS);
 value_UPS = wb_position_sensor_get_value(UPS);
