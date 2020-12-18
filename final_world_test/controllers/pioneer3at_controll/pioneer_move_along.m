@@ -67,7 +67,7 @@ function [angle_deviation, turn_requests, turn_orientation2, set_radio_requests]
                 < distance * 7.8/9 && break_requests == 0 && parking_signal == 0
             break_requests = 1;
             turn_requests = 6;
-            break_delay = 3;
+            break_delay = 2;
             break_time_count = wb_robot_get_time;
             align_to_obstacle_requests = 0;
         end
@@ -229,7 +229,7 @@ function [angle_deviation, turn_requests, turn_orientation2, set_radio_requests]
             end
             if norm(direction_vector) < 20
                 pioneer_turn(180, turn_orientation2, 0, wheel_motors,...
-                        compass, velocity, TIME_STEP);            
+                        compass, velocity, TIME_STEP);
                 break_requests = 1;
                 break_delay = 0;
                 break_time_count = wb_robot_get_time;

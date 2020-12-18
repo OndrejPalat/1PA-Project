@@ -1,6 +1,6 @@
 
-%desktop;
-%keyboard;
+desktop;
+keyboard;
 
 TIME_STEP = 32;
 
@@ -38,7 +38,7 @@ ask_gps_requests = 1;
 set_direction_requests = 0;
 angle_deviation = 0;
 set_direction_period = 20;
-set_direction_delay = 6;
+set_direction_delay = 5;
 set_radio_request = 0;
 direction_angle = 0;
 cross_product = [0 0 0];
@@ -173,7 +173,7 @@ while wb_robot_step(TIME_STEP) ~= -1
  
   if sensors_data(1) > reaction_distance / 1.2 &&...
       sensors_data(16) > reaction_distance / 1.2 &&...
-      wb_robot_get_time > time_turn + 3
+      wb_robot_get_time > time_turn + 5
     [angle_deviation, turn_requests, turn_orientation, set_radio_requests] =...
         pioneer_move_along(reaction_distance, "left", velocity, angle_deviation,...
         gps_destination, sensors, parking_sensors , wheel_motors, compass, gps,...
@@ -187,7 +187,7 @@ while wb_robot_step(TIME_STEP) ~= -1
   end  
   if sensors_data(8) > reaction_distance / 1.2 &&...
       sensors_data(9) > reaction_distance / 1.2 &&...
-      wb_robot_get_time > time_turn + 3
+      wb_robot_get_time > time_turn + 5
     [angle_deviation, turn_requests, turn_orientation, set_radio_requests] =...
         pioneer_move_along(reaction_distance, "right", velocity, angle_deviation,...
         gps_destination, sensors, parking_sensors , wheel_motors, compass, gps,...
